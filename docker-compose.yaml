@@ -1,0 +1,18 @@
+services:
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root  # Required: Set the root password
+      MYSQL_DATABASE: e_commerce        # Optional: Creates this DB on startup
+      MYSQL_USER: monje                   # Optional: Creates a non-root user
+      MYSQL_PASSWORD: monje           # Optional: Password for the non-root user
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      # Optional: Auto-run scripts on first start
+      # - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  mysql_data:
