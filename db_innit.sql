@@ -1,9 +1,9 @@
 CREATE TABLE USERS (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     user_name VARCHAR(50) not null ,
-    password_hashed VARCHAR(50),
+    password_hashed VARCHAR(255),
     user_email VARCHAR(50) UNIQUE ,
-    user_phone INT NOT NULL,
+    user_phone VARCHAR(20) NOT NULL,
     location VARCHAR(100),
     is_buyer boolean DEFAULT TRUE,
     is_seller boolean DEFAULT FALSE,
