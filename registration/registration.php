@@ -40,71 +40,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt = $conn->prepare($sql);
             $stmt->execute([$username, $hashed_password, $email, $phone]);
             echo "Welcome, Buyer! Registration successful.";
+
+            header("Location: target-file.php");
+            exit;
         }
     }
 }
-
-?>
-
-<!--creation of html registration page -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration</title>
-</head>
-<body>
-    <h1>Registration</h1>
-    <h2>Create an Account</h2>
-    <form id="registration" action="registration.php" method="POST">
-        <div>
-            <label for="userName">Username: </label>
-            <input type="text" id="userName" name="userName" required value="<?php echo $username;?>">
-        </div>
-
-        <div>
-            <label for="email">Email: </label>
-            <input type="email" id="email" name="email" required value="<?php echo $email;?>">
-        </div>
-
-        <div>
-            <label for="phoneNumber">Phone Number: </label>
-            <input type="tel" id="phoneNumber" name="phoneNumber" required value="<?php echo $phone;?>">
-        </div>
-
-        <div>
-            <label for="role">I am registering as a: </label>
-            <select id="role" name="role">
-                <option value="buyer">Buyer</option>
-                <option value="seller">Seller</option>
-            </select>
-        </div>
-
-        <div>
-            <label for="password">Password: </label>
-            <input type="password" id="password" name="password" required>
-        </div>
-
-        <div>
-            <label for="confirmPassword">Confirm Password: </label>
-            <input type="password" id="confirmPassword" name="confirmPassword" required>
-        </div>
-
-        <button type="submit">Submit</button>
-    </form>
-
-    <script src="registration-validation.js"></script>
-
-    <?php
-    if ($error_message_popup != ""){
-        ?>
-
-        <script>
-            alert("<?php echo $error_message_popup;?>");
-        </script>
-
-        <?php
-    }
-    ?>
-</body>
