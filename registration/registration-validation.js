@@ -1,11 +1,11 @@
 //registration validation file
-
+import 'db_connection.php';
 //only occurs if registration form is submitted
 document.getElementById('registration').addEventListener('submit',function(event){
     //grab field values
-    let username = document.getElementById('username').value;
+    let userName = document.getElementById('userName').value;
     let email = document.getElementById('email').value;
-    let phone = document.getElementById('phone').value;
+    let phoneNumber = document.getElementById('phoneNumber').value;
     let password = document.getElementById('password').value;
     let confirmPassword = document.getElementById('confirmPassword').value;
     let role = document.getElementById('role').value;
@@ -18,5 +18,9 @@ document.getElementById('registration').addEventListener('submit',function(event
             alert('Passwords do not match');
             event.preventDefault();
         }
+    }
+
+    if(email.length < 10){
+
     }
 })

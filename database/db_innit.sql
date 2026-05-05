@@ -1,15 +1,15 @@
 CREATE TABLE USERS (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
-    user_name VARCHAR(50) not null ,
-    password_hashed VARCHAR(255),
-    user_email VARCHAR(50) UNIQUE ,
+    user_name VARCHAR(50) NOT NULL ,
+    password_hashed VARCHAR(255) NOT NULL,
+    user_email VARCHAR(50) UNIQUE NOT NULL,
     user_phone VARCHAR(20) NOT NULL,
     location VARCHAR(100),
     is_buyer boolean DEFAULT TRUE,
     is_seller boolean DEFAULT FALSE,
     is_admin boolean DEFAULT FALSE,
-    date_created DATE NOT NULL ,
-    last_updated DATE NOT NULL
+    date_created DATE NOT NULL DEFAULT (NOW()),
+    last_updated DATE NOT NULL DEFAULT (NOW())
 );
 
 CREATE TABLE CATEGORIES (
