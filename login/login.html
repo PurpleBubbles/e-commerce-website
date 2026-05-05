@@ -19,16 +19,6 @@
             margin: 10px;
         }
 
-        /* Form container card */
-        container {
-            background: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
-        }
-
         h1 {
             font-size: 3rem;
             text-align: center;
@@ -39,14 +29,6 @@
             text-align: center;
             color: #333;
             margin-bottom: 24px;
-        }
-
-        form{
-            display: flow;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-
         }
 
         /* Button styling with hover effect */
@@ -68,6 +50,21 @@
             background-color: #038d5a;
         }
 
+        label {
+            display: block;
+            width: 100%;
+            text-align: left;
+        }
+        input {
+            width: 100%;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            background-color: orange;
+            text-align: center;
+            justify-content: center;
+            color: white;
+        }
+
         /* Footer links */
         .footer-links {
             margin-top: 20px;
@@ -83,9 +80,6 @@
 </head>
 <body>
 <h1>Login</h1>
-
-<div class="card">
-    <div class="container">
         <h2>Sign into Account</h2>
         <form id="login" action="login.php" method="POST">
             <div>
@@ -100,9 +94,6 @@
 
             <button type="submit">Login</button>
         </form>
-    </div>
-</div>
-
 <a href="/registration/registration.html" class="footer-links">Create an Account</a>
 
 </body>
