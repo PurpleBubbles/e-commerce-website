@@ -1,7 +1,9 @@
 <?php
 
+class ValidationException extends Exception {}
+
 //include db connection file
-include '/Users/monje/PhpstormProjects/ecommerce/database/db_connection.php';
+include '../database/db_connection.php';
 
 $username = "";
 $email = "";
@@ -20,29 +22,175 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $role = htmlspecialchars($_POST['role']);
     $hashed_password = password_hash($_POST['password'], PASSWORD_DEFAULT); //always store only hashed passwords!!!
 
-    //check if user email already in use
-    $sql = "SELECT COUNT(*) as `counter` FROM USERS WHERE user_email = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute([$email]);
-    $row = $stmt->fetch();
-
-    if ($row['counter'] >= 1){
-        $error_message_popup = "User already exists!";
-    }else{
-        //Seller Identification Check
-        if ($role === 'seller') {
-            // Here you would eventually redirect them to a secondary form
-
-            // to upload their ID or verify their business details.
-            echo "Welcome, Seller! Proceeding to identification verification...";
-        } else {
-            $sql = "INSERT INTO USERS (user_name, password_hashed, user_email, user_phone) VALUES (?, ?, ?, ?)";
-            $stmt = $conn->prepare($sql);
-            $stmt->execute([$username, $hashed_password, $email, $phone]);
-            echo "Welcome, Buyer! Registration successful.";
-
-            header("Location: target-file.php");
-            exit;
+    try {
+        if ($_POST['password'] !== $_POST['confirmPassword']) {
+            throw new ValidationException("The passwords did not match");
         }
+
+        //check if user email already in use
+        $sql = "SELECT COUNT(*) as `counter` FROM USERS WHERE user_email = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$email]);
+        $row = $stmt->fetch();
+
+        if ($row['counter'] >= 1){
+            throw new ValidationException("User already exists!");
+        }else{
+            //Seller Identification Check
+            if ($role === 'seller') {
+                // Here you would eventually redirect them to a secondary form
+
+                // to upload their ID or verify their business details.
+                echo "Welcome, Seller! Proceeding to identification verification...";
+            } else {
+                $sql = "INSERT INTO USERS (user_name, password_hashed, user_email, user_phone) VALUES (?, ?, ?, ?)";
+                $stmt = $conn->prepare($sql);
+                $stmt->execute([$username, $hashed_password, $email, $phone]);
+                echo "Welcome, Buyer! Registration successful.";
+
+                header("Location: target-file.php");
+                exit;
+            }
+        }
+
+    } catch (ValidationException $e) {
+        $error_message_popup = $e->getMessage();
     }
+
+
+
 }
+
+?>
+
+<!--creation of html registration page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <style>
+        /* General page styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 10px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 24px;
+        }
+
+        /* Button styling with hover effect */
+        btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #04AA6D;
+            text-align: center;
+            justify-content: center;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        btn:hover {
+            background-color: #038d5a;
+        }
+
+        label {
+            display: block;
+            width: 100%;
+            text-align: left;
+        }
+        input, select {
+            width: 100%;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            background-color: orange;
+            text-align: center;
+            justify-content: center;
+            color: white;
+        }
+
+        /* Footer links */
+        .footer-links {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .footer-links a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Registration</h1>
+
+<h2>Create an Account</h2>
+<form id="registration" action="registration.php" method="POST">
+
+    <div class="registration-form">
+        <label>Username: </label>
+        <input type="text" id="userName" name="userName" required value="<?php echo $username;?>">
+
+        <label>Email: </label>
+        <input type="email" id="email" name="email" required value="<?php echo $email;?>">
+
+        <label>Phone Number: </label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" required value="<?php echo $phone;?>">
+
+        <label>I am registering as a: </label>
+        <select id="role" name="role">
+            <option value="buyer">Buyer</option>
+            <option value="seller">Seller</option>
+        </select>
+
+        <label>Password: </label>
+        <input type="password" id="password" name="password" required>
+
+        <label>Confirm Password: </label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+        <button type="submit">Submit</button>
+    </div>
+
+</form>
+
+
+
+<a href="/login/login.html" class="footer-links">To Login Page</a>
+
+<?php
+if ($error_message_popup != ""){
+    ?>
+
+    <script>
+        alert("<?php echo $error_message_popup;?>");
+    </script>
+
+    <?php
+}
+?>
+
+</body>
