@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $stmt->fetch();
 
         if ($row['counter'] >= 1){
-            throw new ValidationException("User already exists!");
+            throw new ValidationException("User with that email address already exists! Please login instead.");
         }else{
             //Seller Identification Check
             if ($role === 'seller') {
@@ -179,7 +179,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-<a href="/login/login.html" class="footer-links">To Login Page</a>
+<a href="/login/login.php" class="footer-links">To Login Page</a>
 
 <?php
 if ($error_message_popup != ""){
