@@ -1,5 +1,5 @@
 services:
-  db:
+  mysql-db:
     image: mysql:latest
     restart: always
     environment:
@@ -13,6 +13,18 @@ services:
       - mysql_data:/var/lib/mysql
       # Optional: Auto-run scripts on first start
       # - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  # https://medium.com/the-sensiolabs-tech-blog/how-to-use-xdebug-in-docker-phpstorm-76d998ef2534
+  php:
+    container_name: ecommerce-php
+    build: .
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/var/www/html
+    extra_hosts:
+      host.docker.internal: host-gateway
 
 volumes:
   mysql_data:
