@@ -1,7 +1,7 @@
-//registration validation file
+//buyer_registration validation file
 import 'db_connection.php';
-//only occurs if registration form is submitted
-document.getElementById('registration').addEventListener('submit',function(event){
+//only occurs if buyer_registration form is submitted
+document.getElementById('buyer_registration').addEventListener('submit',function(event){
     //grab field values
     let userName = document.getElementById('userName').value;
     let email = document.getElementById('email').value;

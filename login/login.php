@@ -1,5 +1,4 @@
 <?php
-
 class ValidationException extends Exception {}
 
 //include db connection file
@@ -7,7 +6,6 @@ include '../database/db_connection.php';
 
 $email = "";
 $hashed_password = "";
-
 $error_message_popup = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -22,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $row = $stmt->fetch();
 
     try {
-        if ($row['counter'] <= 1){
+        if ($row['counter'] < 1){
             throw new ValidationException("User with that email address does not exist! Please create an account instead.");
         }else{
             //check if user with that email has a matching password
@@ -32,7 +30,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $row = $stmt->fetch();
 
             if (password_verify($_POST['password'], $row['password_hashed'])){
-                echo "Login successful!";
+                // Redirect to home page
+                header('Location: /home/home.php');
+                exit; // Ensure code stops executing after redirect
             } else{
                 throw new ValidationException("Incorrect password! Please try again.");
             }
@@ -41,7 +41,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error_message_popup = $e->getMessage();
     }
 }
-
 ?>
 
 <!doctype html>
@@ -140,7 +139,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <button type="submit">Login</button>
 </form>
-<a href="/registration/registration.php" class="footer-links">Create an Account</a>
+<a href="/registration/buyer_registration.php" class="footer-links">Register as Buyer</a>
+<a href="/registration/seller_registration.php" class="footer-links">Register as Seller</a>
 
 <?php
 if ($error_message_popup != ""){

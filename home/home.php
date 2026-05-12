@@ -1,3 +1,12 @@
+<?php
+
+//include db connection file
+include '../database/db_connection.php';
+
+echo "Home Page";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -33,16 +42,6 @@
                 color: #f1f1f1;
             }
 
-            /* Add media queries for small screens (when the height of the screen is less than 450px, add a smaller padding and font-size) */
-            @media screen and (max-height: 450px) {
-                .sidebar {padding-top: 15px;}
-                .sidebar a {font-size: 18px;}
-            }
-
-            content {
-                margin-left: 170px;
-            }
-
             container {
                 display: grid;
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -54,11 +53,12 @@
                 max-width: 300px;
                 border-radius: 15px;
                 padding: 12px;
+                margin-left: 170px;
             }
 
             .price {
-                color: grey;
-                font-size: 22px;
+    color: grey;
+    font-size: 22px;
             }
 
             img {

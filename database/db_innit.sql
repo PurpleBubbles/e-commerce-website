@@ -143,3 +143,12 @@ CREATE TABLE MESSAGES(
     FOREIGN KEY (conversation_id) REFERENCES CONVERSATIONS(conversation_id)
 );
 
+CREATE TABLE SELLER_INFO(
+    seller_id VARCHAR(10) PRIMARY KEY,
+    house_address VARCHAR(200) NOT NULL,
+    bank_name VARCHAR(50) NOT NULL,
+    bank_account INT NOT NULL,
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES USERS(user_id)
+);
+
