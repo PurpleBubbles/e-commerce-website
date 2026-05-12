@@ -8,18 +8,16 @@ include '../database/db_connection.php';
 $username = "";
 $email = "";
 $phone = "";
-$role = "";
 $hashed_password = "";
 
 $error_message_popup = "";
 
-// PHP registration file
+// PHP buyer_registration file
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //validate and sanitize user input
     $username = htmlspecialchars($_POST['userName']);
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $phone = filter_var($_POST['phoneNumber'], FILTER_SANITIZE_NUMBER_INT);
-    $role = htmlspecialchars($_POST['role']);
     $hashed_password = password_hash($_POST['password'], PASSWORD_DEFAULT); //always store only hashed passwords!!!
 
     try {
@@ -34,42 +32,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $stmt->fetch();
 
         if ($row['counter'] >= 1){
-            throw new ValidationException("User already exists!");
+            throw new ValidationException("User with that email address already exists! Please login instead.");
         }else{
-            //Seller Identification Check
-            if ($role === 'seller') {
-                // Here you would eventually redirect them to a secondary form
 
-                // to upload their ID or verify their business details.
-                echo "Welcome, Seller! Proceeding to identification verification...";
-            } else {
-                $sql = "INSERT INTO USERS (user_name, password_hashed, user_email, user_phone) VALUES (?, ?, ?, ?)";
-                $stmt = $conn->prepare($sql);
-                $stmt->execute([$username, $hashed_password, $email, $phone]);
-                echo "Welcome, Buyer! Registration successful.";
+            $sql = "INSERT INTO USERS (user_name, password_hashed, user_email, user_phone) VALUES (?, ?, ?, ?)";
+            $stmt = $conn->prepare($sql);
+            $stmt->execute([$username, $hashed_password, $email, $phone]);
 
-                header("Location: target-file.php");
-                exit;
-            }
+            // Redirect to home page
+            header('Location: /home/home.php');
+            exit; // Ensure code stops executing after redirect
+            header("Location: target-file.php");
+            exit;
         }
 
     } catch (ValidationException $e) {
         $error_message_popup = $e->getMessage();
     }
-
-
-
 }
 
 ?>
 
-<!--creation of html registration page -->
+<!--creation of html buyer_registration page -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration</title>
+    <title>Buyer Registration</title>
     <style>
         /* General page styling */
         body {
@@ -145,13 +135,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 
-<h1>Registration</h1>
-
+<h1>Buyer Registration</h1>
 <h2>Create an Account</h2>
-<form id="registration" action="registration.php" method="POST">
+<form id="buyer_registration" action="buyer_registration.php" method="POST">
 
     <div class="registration-form">
-        <label>Username: </label>
+        <label id="userName">Username: </label>
         <input type="text" id="userName" name="userName" required value="<?php echo $username;?>">
 
         <label>Email: </label>
@@ -160,26 +149,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label>Phone Number: </label>
         <input type="tel" id="phoneNumber" name="phoneNumber" required value="<?php echo $phone;?>">
 
-        <label>I am registering as a: </label>
-        <select id="role" name="role">
-            <option value="buyer">Buyer</option>
-            <option value="seller">Seller</option>
-        </select>
-
         <label>Password: </label>
         <input type="password" id="password" name="password" required>
 
         <label>Confirm Password: </label>
         <input type="password" id="confirmPassword" name="confirmPassword" required>
 
-        <button type="submit">Submit</button>
+        <button type="submit">Register</button>
     </div>
 
 </form>
 
-
-
-<a href="/login/login.html" class="footer-links">To Login Page</a>
+<a href="/login/login.php" class="footer-links">Login Page</a>
+<a href="/registration/seller_registration.php" class="footer-links">Seller Registration</a>
 
 <?php
 if ($error_message_popup != ""){
