@@ -1,11 +1,13 @@
 <?php
 
+include '../controllers/report_ctrl.php';
 //include db connection file
 include '../database/db_connection.php';
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-
-}
+$sql = "SELECT * FROM REPORTS";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$rows = $stmt->fetchAll();
 
 ?>
 
@@ -103,78 +105,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="report-body">
                 <div class="report-headings">
                     <h3 class="t-op">Report ID</h3>
-                    <h3 class="t-op">Seller ID</h3>
-                    <h3 class="t-op">Buyer ID</h3>
-                    <h3 class="t-op">Product ID</h3>
+                    <h3 class="t-op">Reason</h3>
                     <h3 class="t-op">Report Date</h3>
-                    <h3 class="t-op">Report Reason</h3>
+                    <h3 class="t-op">Resolution</h3>
                     <h3 class="t-op">Status</h3>
                 </div>
 
                 <div class="reports">
-                    <div class="report2">
-                        <h3 class="t-op-nextlvl">Article 73</h3>
-                        <h3 class="t-op-nextlvl">2.9k</h3>
-                        <h3 class="t-op-nextlvl">210</h3>
-                        <h3 class="t-op-nextlvl label-tag">Published</h3>
-                    </div>
 
-                    <div class="report2">
-                        <h3 class="t-op-nextlvl">Article 72</h3>
-                        <h3 class="t-op-nextlvl">1.5k</h3>
-                        <h3 class="t-op-nextlvl">360</h3>
-                        <h3 class="t-op-nextlvl label-tag">Published</h3>
-                    </div>
+                    <?php
+                    foreach($rows as $row){
+                        echo ReportCtrl::displayReport($row);
+                    }
+                    ?>
 
-                    <div class="report2">
-                        <h3 class="t-op-nextlvl">Article 71</h3>
-                        <h3 class="t-op-nextlvl">1.1k</h3>
-                        <h3 class="t-op-nextlvl">150</h3>
-                        <h3 class="t-op-nextlvl label-tag">Published</h3>
-                    </div>
-
-                    <div class="report2">
-                        <h3 class="t-op-nextlvl">Article 70</h3>
-                        <h3 class="t-op-nextlvl">1.2k</h3>
-                        <h3 class="t-op-nextlvl">420</h3>
-                        <h3 class="t-op-nextlvl label-tag">Published</h3>
-                    </div>
-
-                    <div class="report2">
-                        <h3 class="t-op-nextlvl">Article 69</h3>
-                        <h3 class="t-op-nextlvl">2.6k</h3>
-                        <h3 class="t-op-nextlvl">190</h3>
-                        <h3 class="t-op-nextlvl label-tag">Published</h3>
-                    </div>
-
-                        <div class="report2">
-                            <h3 class="t-op-nextlvl">Article 68</h3>
-                            <h3 class="t-op-nextlvl">1.9k</h3>
-                            <h3 class="t-op-nextlvl">390</h3>
-                            <h3 class="t-op-nextlvl label-tag">Published</h3>
-                        </div>
-
-                        <div class="report2">
-                            <h3 class="t-op-nextlvl">Article 67</h3>
-                            <h3 class="t-op-nextlvl">1.2k</h3>
-                            <h3 class="t-op-nextlvl">580</h3>
-                            <h3 class="t-op-nextlvl label-tag">Published</h3>
-                        </div>
-
-                        <div class="report2">
-                            <h3 class="t-op-nextlvl">Article 66</h3>
-                            <h3 class="t-op-nextlvl">3.6k</h3>
-                            <h3 class="t-op-nextlvl">160</h3>
-                            <h3 class="t-op-nextlvl label-tag">Published</h3>
-                        </div>
-
-                        <div class="report2">
-                            <h3 class="t-op-nextlvl">Article 65</h3>
-                            <h3 class="t-op-nextlvl">1.3k</h3>
-                            <h3 class="t-op-nextlvl">220</h3>
-                            <h3 class="t-op-nextlvl label-tag">Published</h3>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
