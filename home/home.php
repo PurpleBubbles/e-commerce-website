@@ -1,7 +1,17 @@
 <?php
 
+include '../controllers/product_ctrl.php';
+
 //include db connection file
 include '../database/db_connection.php';
+
+$sql = "SELECT * FROM PRODUCTS";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$rows = $stmt->fetchAll();
+
+$items = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
 
 ?>
 
@@ -53,18 +63,15 @@ include '../database/db_connection.php';
         </div>
 
         <div class="main">
-            <div class="box-products">
-                <div class="product">
-                    <img src="/media/coffee.jpeg" class="product-img" alt="coffee" />
-                    <div class="product-text">
-                        <h2 class="topic-heading">Product name</h2>
-                        <h2 class="topic">Product price</h2>
-                        <h2 class="topic">Location</h2>
-                    </div>
-                </div>
 
-            </div>
+            <?php
+                foreach($rows as $row){
+                    echo ProductCtrl::displayProduct($row);
+                }
+            ?>
+
         </div>
+
     </div>
     </body>
 </html>

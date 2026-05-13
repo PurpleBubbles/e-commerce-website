@@ -30,11 +30,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $row = $stmt->fetch();
 
             if (password_verify($_POST['password'], $row['password_hashed'])){
-                // Redirect to home page
+                // Redirect to correct home page based on user type
                 $sql = "SELECT is_buyer, is_seller, is_admin FROM USERS WHERE user_email = ?";
                 $stmt = $conn->prepare($sql);
                 $stmt->execute([$email]);
                 $row = $stmt->fetch();
+
                 if ($row['is_admin'] == 1){
                     header('Location: /admin/admin_home.php');
                     exit;
