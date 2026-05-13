@@ -17,24 +17,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Page</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="responsive.css" />
 </head>
 
 <body>
 
 <header>
-    <div class="searchbar">
-        <input type="text" placeholder="Search" />
-        <div class="searchbtn">
-            <img src="/mock_data/search.png" class="icn" alt="search-button"/>
-        </div>
+    <div class="admin_center">
+        <label >
+            <h3>Admin Center</h3>
+        </label>
     </div>
 
     <div class="notifications">
         <div class="circle"></div>
-        <img src="/mock_data/notification.png" class="icn" alt="notification alert" />
+        <img src="/media/notification.png" class="icn" alt="notification alert" />
         <div class="dp">
-            <img src="/mock_data/profile.png" class="dpicn" alt="profile emoticon" />
+            <img src="/media/profile.png" class="dpicn" alt="profile emoticon" />
         </div>
     </div>
 </header>
@@ -45,18 +43,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <nav class="navigation_bar">
             <div class="nav-upper-options">
 
-                <div class="nav-option Home">
-                    <img src="/mock_data/home.png" class="report-img" alt="home" />
+                <div class="nav-option Home" onclick="location.href='/admin/admin_home.php'">
+                    <img src="/media/home.png" class="report-img" alt="home" />
                     <h3>Home</h3>
                 </div>
 
-                <div class="nav-option Report">
-                    <img src="/mock_data/reports.png" class="report-img" alt="reports" />
+                <div class="nav-option Report" onclick="location.href='/admin/admin_reports.php'">
+                    <img src="/media/reports.png" class="report-img" alt="reports" />
                     <h3>Reports</h3>
                 </div>
 
-                <div class="nav-option Logout">
-                    <img src="/mock_data/logout.png" class="report-img" alt="logout" />
+                <div class="nav-option Logout" onclick="location.href='/login/login.php'">
+                    <img src="/media/logout.png" class="report-img" alt="logout" />
                     <h3>Logout</h3>
                 </div>
 

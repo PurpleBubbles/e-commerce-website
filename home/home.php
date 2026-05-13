@@ -100,7 +100,7 @@ echo "Home Page";
     <div class="content">
         <div class="container">
             <div class="card">
-                <img src="/mock_data/coffee.jpeg" alt="White coffee mug and saucer on a table ">
+                <img src="/media/coffee.jpeg" alt="White coffee mug and saucer on a table ">
                 <h2>Coffee Mug</h2>
                 <p class="price">R20.00</p>
                 <p>A description of the product</p>
@@ -110,7 +110,7 @@ echo "Home Page";
                 </p>
             </div>
             <div class="card">
-                <img src="/mock_data/coffee.jpeg" alt="White coffee mug and saucer on a table ">
+                <img src="/media/coffee.jpeg" alt="White coffee mug and saucer on a table ">
                 <h2>Coffee Mug</h2>
                 <p class="price">R20.00</p>
                 <p>A description of the product</p>
@@ -120,7 +120,7 @@ echo "Home Page";
                 </p>
             </div>
             <div class="card">
-                <img src="/mock_data/coffee.jpeg" alt="White coffee mug and saucer on a table ">
+                <img src="/media/coffee.jpeg" alt="White coffee mug and saucer on a table ">
                 <h2>Coffee Mug</h2>
                 <p class="price">R20.00</p>
                 <p>A description of the product</p>
