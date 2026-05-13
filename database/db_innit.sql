@@ -115,7 +115,7 @@ CREATE TABLE REVIEWS (
 CREATE TABLE REPORTS (
     report_id INT AUTO_INCREMENT PRIMARY KEY,
     report_reason VARCHAR(200) NOT NULL,
-    reported_at DATE NOT NULL,
+    reported_at DATE NOT NULL default (NOW()),
     completed_at DATE,
     resolution VARCHAR(200),
     product_id INT,
