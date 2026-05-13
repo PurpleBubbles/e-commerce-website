@@ -31,8 +31,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if (password_verify($_POST['password'], $row['password_hashed'])){
                 // Redirect to home page
-                header('Location: /home/home.php');
-                exit; // Ensure code stops executing after redirect
+                $sql = "SELECT is_buyer, is_seller, is_admin FROM USERS WHERE user_email = ?";
+                $stmt = $conn->prepare($sql);
+                $stmt->execute([$email]);
+                $row = $stmt->fetch();
+                if ($row['is_admin'] == 1){
+                    header('Location: /admin/admin_home.php');
+                    exit;
+                } else if ($row['is_seller'] == 1){
+                    header('Location: /home/home.php');
+                    exit; // Ensure code stops executing after redirect
+                } else{
+                    header('Location: /home/home.php');
+                    exit;
+                }
             } else{
                 throw new ValidationException("Incorrect password! Please try again.");
             }
