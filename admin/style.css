@@ -53,9 +53,7 @@ header {
     cursor: pointer;
 }
 
-.admin_center,
-.notifications,
-.logosec {
+.admin_center, .home_page, .notifications, .logosec {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -230,7 +228,39 @@ header {
     background-color: var(--Border-color);
 }
 
-.box {
+.box-products{
+    height: fit-content;
+    width: fit-content;
+    border-radius: 20px;
+    background-color: var(--two-use-color);;
+    box-shadow: 3px 3px 10px rgb(63 0 151);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product{
+    background-color: var(--two-use-color);
+    color: white;
+    width: 100%;
+    height: 100%;
+}
+
+.product-img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.product-text{
+    padding: 20px;
+}
+
+.box-container {
     height: 130px;
     width: 230px;
     border-radius: 20px;
