@@ -1,6 +1,6 @@
 <?php
 
-include '../controllers/report_ctrl.php';
+include '../controllers/adminreport_ctrl.php';
 //include db connection file
 include '../database/db_connection.php';
 
