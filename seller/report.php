@@ -75,6 +75,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <img src="/media/home.png" class="report-img" alt="home" />
                     <h3>Home</h3>
                 </div>
+                <div class="nav-option Bought" onclick="location.href='/seller/bought.php'">
+                    <img src="/media/bought.png" class="report-img" alt="bought" />
+                    <h3>Bought</h3>
+                </div>
+                <div class="nav-option Sold" onclick="location.href='/seller/sold.php'">
+                    <img src="/media/sold.png" class="report-img" alt="sold" />
+                    <h3>Sold</h3>
+                </div>
+                <div class="nav-option List" onclick="location.href='/seller/list.php'">
+                    <img src="/media/list.png" class="report-img" alt="list new product" />
+                    <h3>List</h3>
+                </div>
                 <div class="nav-option Logout" onclick="location.href='/logout/logout.php'">
                     <img src="/media/logout.png" class="report-img" alt="logout" />
                     <h3>Logout</h3>
