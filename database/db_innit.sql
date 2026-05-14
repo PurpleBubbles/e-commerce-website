@@ -38,7 +38,7 @@ CREATE TABLE LOCATIONS (
 CREATE TABLE PRODUCTS (
     product_id INT AUTO_INCREMENT PRIMARY KEY,
     product_name VARCHAR(50) NOT NULL,
-    description VARCHAR(100),
+    description VARCHAR(300),
     price DECIMAL(10,2) NOT NULL,
     /*
     1= means product is new
