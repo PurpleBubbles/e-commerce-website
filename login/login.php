@@ -1,4 +1,6 @@
 <?php
+//start user session
+session_start();
 class ValidationException extends Exception {}
 
 //include db connection file

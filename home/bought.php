@@ -1,5 +1,6 @@
 <?php
-
+//start user session
+session_start();
 include '../controllers/bought_ctrl.php';
 
 //include db connection file

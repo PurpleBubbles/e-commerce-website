@@ -1,4 +1,6 @@
 <?php
+//start user session
+session_start();
 
 include '../controllers/productview_ctrl.php';
 include '../database/db_connection.php';

@@ -1,4 +1,6 @@
 <?php
+//start user session
+session_start();
 
 include '../controllers/product_ctrl.php';
 
