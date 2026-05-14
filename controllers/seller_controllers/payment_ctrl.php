@@ -41,9 +41,9 @@ class PaymentCtrl {
             </div>
         
             <div class="payment_button">
-                <button class="view" onclick="location.href='/buyer/buyer.php'">Pay</button>
+                <button class="view" onclick="location.href='/seller/buy.php'">Pay</button>
             </div>
-            <button class="view" onclick="location.href='../../buyer/home.php'">Cancel</button>
+            <button class="view" onclick="location.href='../../seller/home.php'">Cancel</button>
         HTML;
     }
 }
