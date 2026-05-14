@@ -11,7 +11,16 @@ CREATE TABLE USERS (
     date_created DATE NOT NULL DEFAULT (NOW()),
     last_updated DATE NOT NULL DEFAULT (NOW())
 );
-
+/*
+Vehicles =1
+Property =2
+Clothing =3
+Electronics=4
+Books =5
+Furniture =6
+Decorations =7
+0ther =8
+*/
 CREATE TABLE CATEGORIES (
     category_id INT AUTO_INCREMENT PRIMARY KEY,
     category_name VARCHAR(50) NOT NULL,
@@ -49,9 +58,11 @@ CREATE TABLE PRODUCTS (
     posted_at DATE NOT NULL DEFAULT (NOW()) ,
     updated_at DATE NOT NULL DEFAULT (NOW()),
     user_id INT,
+    category_id INT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES USERS(user_id),
     location_id INT,
-    FOREIGN KEY (location_id) REFERENCES LOCATIONS(location_id)
+    FOREIGN KEY (location_id) REFERENCES LOCATIONS(location_id),
+    FOREIGN KEY (category_id) REFERENCES CATEGORIES(category_id)
 );
 
 CREATE TABLE PRODUCT_IMAGES(
