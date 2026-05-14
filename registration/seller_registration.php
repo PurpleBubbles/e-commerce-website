@@ -67,8 +67,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             //store user id in session
             $_SESSION['user_id'] = $row['user_id'];
 
-            // Redirect to home page
-            header('Location: /home/home.php');
+            // Redirect to buyer page
+            header('Location: /buyer/buyer.php');
             exit; // Ensure code stops executing after redirect
             header("Location: target-file.php");
             exit;

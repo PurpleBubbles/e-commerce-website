@@ -47,11 +47,11 @@ $rows = $stmt->fetchAll();
             <nav class="navigation_bar">
                 <div class="nav-upper-options">
 
-                    <div class="nav-option Home" onclick="location.href='/home/home.php'">
+                    <div class="nav-option Home" onclick="location.href='/buyer/home.php'">
                         <img src="/media/home.png" class="report-img" alt="home" />
                         <h3>Home</h3>
                     </div>
-                    <div class="nav-option Bought" onclick="location.href='/home/bought.php'">
+                    <div class="nav-option Bought" onclick="location.href='/buyer/bought.php'">
                         <img src="/media/bought.png" class="report-img" alt="bought" />
                         <h3>Bought</h3>
                     </div>

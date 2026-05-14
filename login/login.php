@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $row = $stmt->fetch();
 
             if (password_verify($_POST['password'], $row['password_hashed'])){
-                // Redirect to correct home page based on user type
+                // Redirect to correct buyer page based on user type
                 $sql = "SELECT is_buyer, is_seller, is_admin , user_id FROM USERS WHERE user_email = ?";
                 $stmt = $conn->prepare($sql);
                 $stmt->execute([$email]);
@@ -46,10 +46,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     header('Location: /admin/admin_home.php');
                     exit;
                 } else if ($row['is_seller'] == 1){
-                    header('Location: /home/home.php');
+                    header('Location: /buyer/buyer.php');
                     exit; // Ensure code stops executing after redirect
                 } else{
-                    header('Location: /home/home.php');
+                    header('Location: /buyer/buyer.php');
                     exit;
                 }
             } else{

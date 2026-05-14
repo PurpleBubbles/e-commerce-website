@@ -34,8 +34,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $stmt = $conn->prepare($sql);
         $stmt->execute([$report_reason, $product_id]);
 
-        // Redirect to home page
-        header('Location: /home/home.php');
+        // Redirect to buyer page
+        header('Location: /buyer/buyer.php');
         exit; // Ensure code stops executing after redirect
         header("Location: target-file.php");
         exit;
@@ -71,7 +71,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <nav class="navigation_bar">
             <div class="nav-upper-options">
 
-                <div class="nav-option Home" onclick="location.href='/home/home.php'">
+                <div class="nav-option Home" onclick="location.href='/buyer/home.php'">
                     <img src="/media/home.png" class="report-img" alt="home" />
                     <h3>Home</h3>
                 </div>
