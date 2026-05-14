@@ -5,12 +5,23 @@ include '../controllers/bought_ctrl.php';
 
 //include db connection file
 include '../database/db_connection.php';
-$user_id = "";
+$user_id = $_SESSION['user_id'];
 
-$sql = "SELECT * FROM BOUGHT where buyer_user_id = ?";
+//get all bought items of user in session
+$sql = "SELECT
+    p.product_id,
+    p.product_name,
+    p.price,
+    p.description
+FROM BOUGHT b
+INNER JOIN PRODUCTS p ON b.product_id = p.product_id
+WHERE buyer_user_id = ?;";
+
 $stmt = $conn->prepare($sql);
-$stmt->execute(['$user_id']);
+$stmt->execute([$user_id]);
 $rows = $stmt->fetchAll();
+
+
 
 ?>
 
@@ -61,12 +72,11 @@ $rows = $stmt->fetchAll();
         <div class="main">
 
             <?php
+
                 foreach($rows as $row){
-                    //check if product has been sold prior to displaying
-                    if($row['status'] !== 0){
-                        echo BoughtCtrl::displayBoughtProducts($row);
-                    }
+                    echo BoughtCtrl::displayBoughtProducts($row);
                 }
+
             ?>
 
         </div>
