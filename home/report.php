@@ -27,7 +27,6 @@ $row = $stmt->fetch();
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $report_reason = htmlspecialchars($_POST['report']);
-    $product_id = filter_var($_POST['product']);
 
     try {
 
