@@ -176,3 +176,12 @@ CREATE TABLE SELLER_INFO(
     FOREIGN KEY (user_id) REFERENCES USERS(user_id)
 );
 
+CREATE TABLE BOUGHT(
+    bought_id INT AUTO_INCREMENT PRIMARY KEY,
+    bought_at DATE NOT NULL DEFAULT (NOW()),
+    product_id INT,
+    FOREIGN KEY (product_id) REFERENCES PRODUCTS(product_id),
+    buyer_user_id INT,
+    FOREIGN KEY (buyer_user_id) REFERENCES USERS(user_id)
+);
+
