@@ -49,7 +49,11 @@ $rows = $stmt->fetchAll();
                         <img src="/media/home.png" class="report-img" alt="home" />
                         <h3>Home</h3>
                     </div>
-                    <div class="nav-option Logout" onclick="location.href='/logn/login.php'">
+                    <div class="nav-option Bought" onclick="location.href='/home/bought.php'">
+                        <img src="/media/bought.png" class="report-img" alt="bought" />
+                        <h3>Bought</h3>
+                    </div>
+                    <div class="nav-option Logout" onclick="location.href='/login/login.php'">
                         <img src="/media/logout.png" class="report-img" alt="logout" />
                         <h3>Logout</h3>
                     </div>
