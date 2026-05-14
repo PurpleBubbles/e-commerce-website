@@ -31,8 +31,21 @@ CREATE TABLE PRODUCTS (
     product_name VARCHAR(50) NOT NULL,
     description VARCHAR(100),
     price DECIMAL(10,2) NOT NULL,
+    /*
+    1= means product is new
+    2= means product is used
+    3= means product is refurbished
+    4= means product is damaged
+    5= means product is broken
+    */
     product_condition INT NOT NULL ,
-    status INT NOT NULL ,
+    /*
+    1= means product is available
+    0= means product is not available
+    */
+    status INT NOT NULL default 1,
+    category_id INT,
+    FOREIGN KEY (category_id) REFERENCES CATEGORIES(category_id),
     posted_at DATE NOT NULL DEFAULT (NOW()) ,
     updated_at DATE NOT NULL DEFAULT (NOW()),
     user_id INT,
