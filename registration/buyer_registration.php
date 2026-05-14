@@ -11,6 +11,7 @@ $username = "";
 $email = "";
 $phone = "";
 $hashed_password = "";
+$user_id="";
 
 $error_message_popup = "";
 
@@ -40,6 +41,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $sql = "INSERT INTO USERS (user_name, password_hashed, user_email, user_phone) VALUES (?, ?, ?, ?)";
             $stmt = $conn->prepare($sql);
             $stmt->execute([$username, $hashed_password, $email, $phone]);
+
+            $sql = "SELECT user_id FROM USERS WHERE user_email = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->execute([$email]);
+            $row = $stmt->fetch();
+
+            //store user id in session
+            $_SESSION['user_id'] = $row['user_id'];
 
             // Redirect to home page
             header('Location: /home/home.php');

@@ -15,8 +15,8 @@ $id_number = "";
 $address = "";
 $bank_name = "";
 $bank_account = "";
-
 $error_message_popup = "";
+$user_id="";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //validate and sanitize user input
@@ -58,6 +58,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $sql = "INSERT INTO SELLER_INFO (seller_id, house_address, bank_name, bank_account, user_id) VALUES (?, ?, ?, ?, ?)";
             $stmt = $conn->prepare($sql);
             $stmt->execute([$id_number, $address, $bank_name, $bank_account, $row["user_id"]]);
+
+            $sql = "SELECT user_id FROM USERS WHERE user_email = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->execute([$email]);
+            $row = $stmt->fetch();
+
+            //store user id in session
+            $_SESSION['user_id'] = $row['user_id'];
 
             // Redirect to home page
             header('Location: /home/home.php');

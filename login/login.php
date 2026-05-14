@@ -9,6 +9,7 @@ include '../database/db_connection.php';
 $email = "";
 $hashed_password = "";
 $error_message_popup = "";
+$user_id="";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //validate and sanitize user input
@@ -33,10 +34,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if (password_verify($_POST['password'], $row['password_hashed'])){
                 // Redirect to correct home page based on user type
-                $sql = "SELECT is_buyer, is_seller, is_admin FROM USERS WHERE user_email = ?";
+                $sql = "SELECT is_buyer, is_seller, is_admin , user_id FROM USERS WHERE user_email = ?";
                 $stmt = $conn->prepare($sql);
                 $stmt->execute([$email]);
                 $row = $stmt->fetch();
+
+                //store user id in session
+                $_SESSION['user_id'] = $row['user_id'];
 
                 if ($row['is_admin'] == 1){
                     header('Location: /admin/admin_home.php');
