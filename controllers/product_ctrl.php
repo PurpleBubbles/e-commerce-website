@@ -9,6 +9,8 @@ class ProductCtrl {
                     <h2 class="topic-heading">{$row['product_name']}</h2>
                     <h2 class="topic">Product price</h2>
                     <h2 class="topic">Location</h2>
+                    <button class="view" onclick="location.href='/home/product.php={$row['product_id']}'">View</button>
+                    <button class="view" onclick="location.href='/home/payment.php?product={$row['product_id']}'">Buy</button>
                 </div>
             </div>
         </div>

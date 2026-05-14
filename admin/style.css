@@ -53,7 +53,7 @@ header {
     cursor: pointer;
 }
 
-.admin_center, .home_page, .notifications, .logosec {
+.admin_center, .home_page, .notifications, .logosec, payment_page {
     display: flex;
     align-items: center;
     justify-content: center;
