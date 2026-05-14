@@ -4,7 +4,7 @@ session_start();
 
 class ValidationException extends Exception {}
 
-include '../controllers/productreport_ctrl.php';
+include '../controllers/buyer_controllers/productreport_ctrl.php';
 //include db connection file
 include '../database/db_connection.php';
 

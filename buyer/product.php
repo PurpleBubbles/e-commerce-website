@@ -2,7 +2,7 @@
 //start user session
 session_start();
 
-include '../controllers/productview_ctrl.php';
+include '../controllers/buyer_controllers/productview_ctrl.php';
 include '../database/db_connection.php';
 
 $product_id = "";

@@ -2,7 +2,7 @@
 //start user session
 session_start();
 
-include '../controllers/product_ctrl.php';
+include '../controllers/buyer_controllers/product_ctrl.php';
 
 //include db connection file
 include '../database/db_connection.php';

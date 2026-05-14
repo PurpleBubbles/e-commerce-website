@@ -1,7 +1,7 @@
 <?php
 //start user session
 session_start();
-include '../controllers/bought_ctrl.php';
+include '../controllers/buyer_controllers/bought_ctrl.php';
 
 //include db connection file
 include '../database/db_connection.php';
