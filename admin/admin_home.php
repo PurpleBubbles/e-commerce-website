@@ -1,4 +1,6 @@
 <?php
+//start user session
+session_start();
 
 include '../controllers/adminreport_ctrl.php';
 //include db connection file
@@ -29,14 +31,6 @@ $rows = $stmt->fetchAll();
             <h3>Admin Center</h3>
         </label>
     </div>
-
-    <div class="notifications">
-        <div class="circle"></div>
-        <img src="/media/notification.png" class="icn" alt="notification alert" />
-        <div class="dp">
-            <img src="/media/profile.png" class="dpicn" alt="profile emoticon" />
-        </div>
-    </div>
 </header>
 
 <div class="main-container">
@@ -55,7 +49,7 @@ $rows = $stmt->fetchAll();
                     <h3>Reports</h3>
                 </div>
 
-                <div class="nav-option Logout" onclick="location.href='/login/login.php'">
+                <div class="nav-option Logout" onclick="location.href='/logout/logout.php'">
                     <img src="/media/logout.png" class="report-img" alt="logout" />
                     <h3>Logout</h3>
                 </div>

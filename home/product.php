@@ -35,14 +35,6 @@ $row = $stmt->fetch();
             <h3>Home</h3>
         </label>
     </div>
-
-    <div class="notifications">
-        <div class="circle"></div>
-        <img src="/media/notification.png" class="icn" alt="notification alert" />
-        <div class="dp">
-            <img src="/media/profile.png" class="dpicn" alt="profile emoticon" />
-        </div>
-    </div>
 </header>
 
 <div class="main-container">
@@ -55,7 +47,7 @@ $row = $stmt->fetch();
                     <img src="/media/home.png" class="report-img" alt="home" />
                     <h3>Home</h3>
                 </div>
-                <div class="nav-option Logout" onclick="location.href='/login/login.php'">
+                <div class="nav-option Logout" onclick="location.href='/logout/logout.php'">
                     <img src="/media/logout.png" class="report-img" alt="logout" />
                     <h3>Logout</h3>
                 </div>

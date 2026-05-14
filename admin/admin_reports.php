@@ -1,4 +1,6 @@
 <?php
+//start user session
+session_start();
 
 include '../controllers/adminreport_ctrl.php';
 include '../database/db_connection.php';
@@ -36,7 +38,7 @@ $rows = $stmt->fetchAll();
                 <h3>Reports</h3>
             </div>
 
-            <div class="nav-option Logout" onclick="location.href='/login/login.php'">
+            <div class="nav-option Logout" onclick="location.href='/logout/logout.php'">
                 <img src="/media/logout.png" class="report-img" alt="logout" />
                 <h3>Logout</h3>
             </div>
