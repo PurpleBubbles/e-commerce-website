@@ -2,7 +2,7 @@
 //start user session
 session_start();
 
-include '../controllers/adminreport_ctrl.php';
+include '../controllers/admin_controllers/adminreport_ctrl.php';
 include '../database/db_connection.php';
 
 $sql = "SELECT * FROM REPORTS";

@@ -2,7 +2,7 @@
 //start user session
 session_start();
 
-include '../controllers/adminreport_ctrl.php';
+include '../controllers/admin_controllers/adminreport_ctrl.php';
 //include db connection file
 include '../database/db_connection.php';
 
