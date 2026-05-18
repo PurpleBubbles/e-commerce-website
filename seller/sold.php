@@ -28,7 +28,7 @@ $rows = $stmt->fetchAll();
 <body>
 
 <header>
-    <div class="home_page">
+    <div class="listing_page">
         <label >
             <h3>Sold Products</h3>
         </label>

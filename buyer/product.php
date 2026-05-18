@@ -30,7 +30,7 @@ $row = $stmt->fetch();
 <body>
 
 <header>
-    <div class="home_page">
+    <div class="listing_page">
         <label >
             <h3>Home</h3>
         </label>
