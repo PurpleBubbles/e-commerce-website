@@ -67,8 +67,7 @@ CREATE TABLE PRODUCTS (
 
 CREATE TABLE PRODUCT_IMAGES(
     image_id INT AUTO_INCREMENT PRIMARY KEY,
-    image_url VARCHAR(100),
-    alt_text VARCHAR(50),
+    image LONGBLOB NOT NULL,
     display_order INT NOT NULL,
     product_id INT,
     FOREIGN KEY (product_id) REFERENCES PRODUCTS(product_id)

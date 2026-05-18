@@ -63,7 +63,7 @@ $rows = $stmt->fetchAll();
                         <img src="/media/sold.png" class="report-img" alt="sold" />
                         <h3>Sold</h3>
                     </div>
-                    <div class="nav-option List" onclick="location.href='/seller/list.php'">
+                    <div class="nav-option List" onclick="location.href='/seller/listing.php'">
                         <img src="/media/list.png" class="report-img" alt="list new product" />
                         <h3>List</h3>
                     </div>
