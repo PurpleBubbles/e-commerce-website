@@ -46,9 +46,6 @@ $report_rows = $stmt->fetch();
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Page</title>
     <link href="/main.css" rel="stylesheet" />
-
-<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">-->
-<!---->
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </head>
 
@@ -65,10 +62,10 @@ $report_rows = $stmt->fetch();
 </header>
 
 <main class="h-100 d-flex flex-nowrap">
-    <div class="h-100 d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-            <img width="20px" src="/media/logo.png" alt="logo" />
-            <span class="fs-4">Admin Center</span>
+    <div class="h-100 d-flex flex-column flex-shrink-0 p-3 text-bg-secondary" style="width: 280px;">
+        <a href="/admin/admin_home.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <img width="40px" src="/media/logo.png" alt="logo" />
+            <span class="fs-4">  Admin Center</span>
         </a>
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
@@ -95,7 +92,7 @@ $report_rows = $stmt->fetch();
 
     <div type="body" class="container-fluid">
         <div class="row align-items-start" style="margin-top: 20px;">
-            <div class="card col text-center text-light bg-secondary shadow-lg" style="width: 18rem;">
+            <div class="card col-md-auto text-center text-light bg-secondary shadow-lg" style="width: 18rem;">
                 <div class="card-body">
                     <p class="topic-heading">
                         <?php
@@ -106,7 +103,7 @@ $report_rows = $stmt->fetch();
                 </div>
             </div>
 
-            <div class="card col text-center text-light bg-secondary" style="width: 18rem;">
+            <div class="card col-md-auto text-center text-light bg-secondary" style="width: 18rem;">
                 <div class="card-body">
                     <p class="topic-heading">
                         <?php
@@ -117,7 +114,7 @@ $report_rows = $stmt->fetch();
                 </div>
             </div>
 
-            <div class="card col text-center text-light bg-secondary" style="width: 18rem;">
+            <div class="card col-md-auto text-center text-light bg-secondary" style="width: 18rem;">
                 <div class="card-body">
                     <p class="topic-heading">
                         <?php
@@ -128,7 +125,7 @@ $report_rows = $stmt->fetch();
                 </div>
             </div>
 
-            <div class="card col text-center text-light bg-secondary" style="width: 18rem;">
+            <div class="card col-md-auto text-center text-light bg-secondary" style="width: 18rem;">
                 <div class="card-body">
                     <p class="topic-heading">
                         <?php
@@ -139,63 +136,38 @@ $report_rows = $stmt->fetch();
                 </div>
             </div>
 
-        <div class="box Reports">
-            <div class="text">
-                <p class="topic-heading">
-                    <?php
-                    echo $report_rows['COUNT(report_id)'];
-                    ?>
-                </p>
-                <p class="topic">Number of Reports</p>
-            </div>
-        </div>
-    </div>
 
-    </div>
-</main>
-
-
-
-
-            <div class="box Reports">
-                <div class="text">
-                    <h2 class="topic-heading">
-                        <?php
-                            echo $report_rows['COUNT(report_id)'];
-                        ?>
-                    </h2>
-                    <h2 class="topic">Number of Reports</h2>
-                </div>
-            </div>
-        </div>
-
-        <div class="report-container">
             <div class="report-header">
                 <h1 class="Recent-Reports">Recent Reports</h1>
-                <button class="view" onclick="location.href='/admin/admin_reports.php'">View All</button>
+                <button type="button" class="bg-primary btn-lg rounded-pill text-light" onclick="location.href='/admin/admin_reports.php'">View All</button>
             </div>
 
-            <div class="report-body">
-                <div class="report-headings">
-                    <h3 class="t-op">Report ID</h3>
-                    <h3 class="t-op">Reason</h3>
-                    <h3 class="t-op">Report Date</h3>
-                    <h3 class="t-op">Resolution</h3>
-                    <h3 class="t-op">Status</h3>
-                </div>
+            <table class="table" title="Recent Reports" style="margin-top: 20px;">
+                <thead>
+                <tr>
+                    <th scope="col">Report ID</th>
+                    <th scope="col">Reason</th>
+                    <th scope="col">Report Date</th>
+                    <th scope="col">Resolution</th>
+                    <th scope="col">Status</th>
+                </tr>
+                <?php
+                foreach($rows as $row){
+                    echo ReportCtrl::displayReport($row);
+                }
+                ?>
 
-                <div class="reports">
+                </thead>
+            </table>
 
-                    <?php
-                    foreach($rows as $row){
-                        echo ReportCtrl::displayReport($row);
-                    }
-                    ?>
+            <div class="reports">
 
-                </div>
+
+
+            </div>
             </div>
         </div>
     </div>
-    </body>
-
+</main>
+</body>
 </html>
