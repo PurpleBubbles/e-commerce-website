@@ -71,7 +71,7 @@ $rows = $stmt->fetchAll();
                 foreach($rows as $row){
                     //check if product has been sold prior to displaying
                     if($row['status'] !== 0){
-                        echo ProductCtrl::displayProduct($row);
+                        echo ProductCtrl::displayProduct($conn, $row);
                     }
                 }
             ?>
