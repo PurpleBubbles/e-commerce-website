@@ -6,6 +6,7 @@ include '../controllers/admin_controllers/adminreport_ctrl.php';
 //include db connection file
 include '../database/db_connection.php';
 
+//get all reports
 $sql = "SELECT * FROM REPORTS";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
@@ -34,7 +35,6 @@ $sql = "SELECT COUNT(report_id) FROM REPORTS";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $report_rows = $stmt->fetch();
-
 
 ?>
 
