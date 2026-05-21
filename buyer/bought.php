@@ -74,7 +74,7 @@ $rows = $stmt->fetchAll();
             <?php
 
                 foreach($rows as $row){
-                    echo BoughtCtrl::displayBoughtProducts($row);
+                    echo BoughtCtrl::displayBoughtProducts($conn, $row);
                 }
 
             ?>
