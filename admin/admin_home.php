@@ -11,6 +11,31 @@ $stmt = $conn->prepare($sql);
 $stmt->execute();
 $rows = $stmt->fetchAll();
 
+//get number of sold products
+$sql = "SELECT COUNT(product_id) FROM PRODUCTS WHERE status = 0";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$sold_rows = $stmt->fetch();
+
+//get number of products
+$sql = "SELECT COUNT(product_id) FROM PRODUCTS";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$product_rows = $stmt->fetch();
+
+//get number of users
+$sql = "SELECT COUNT(user_id) FROM USERS";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$user_rows = $stmt->fetch();
+
+//get number of reports
+$sql = "SELECT COUNT(report_id) FROM REPORTS";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$report_rows = $stmt->fetch();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -63,28 +88,44 @@ $rows = $stmt->fetchAll();
         <div class="box-container">
             <div class="box Sales">
                 <div class="text">
-                    <h2 class="topic-heading">60.5k</h2>
-                    <h2 class="topic">Sales to Date</h2>
+                    <h2 class="topic-heading">
+                        <?php
+                            echo $sold_rows['COUNT(product_id)'];
+                        ?>
+                    </h2>
+                    <h2 class="topic">Product Sold To Date</h2>
                 </div>
             </div>
 
             <div class="box Products">
                 <div class="text">
-                    <h2 class="topic-heading">150</h2>
-                    <h2 class="topic">Products for Sale</h2>
+                    <h2 class="topic-heading">
+                        <?php
+                            echo $product_rows['COUNT(product_id)'];
+                        ?>
+                    </h2>
+                    <h2 class="topic">Products in Database</h2>
                 </div>
             </div>
 
             <div class="box Users">
                 <div class="text">
-                    <h2 class="topic-heading">320</h2>
+                    <h2 class="topic-heading">
+                        <?php
+                            echo $user_rows['COUNT(user_id)'];
+                        ?>
+                    </h2>
                     <h2 class="topic">Number of Users</h2>
                 </div>
             </div>
 
             <div class="box Reports">
                 <div class="text">
-                    <h2 class="topic-heading">70</h2>
+                    <h2 class="topic-heading">
+                        <?php
+                            echo $report_rows['COUNT(report_id)'];
+                        ?>
+                    </h2>
                     <h2 class="topic">Number of Reports</h2>
                 </div>
             </div>
