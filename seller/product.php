@@ -73,7 +73,7 @@ $row = $stmt->fetch();
 
         <?php
 
-            echo ViewCtrl::displayDetailedProductView($row);
+            echo ViewCtrl::displayDetailedProductView($conn, $row);
 
         ?>
 
