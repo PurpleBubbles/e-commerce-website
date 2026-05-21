@@ -39,85 +39,123 @@ $report_rows = $stmt->fetch();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Page</title>
-    <link rel="stylesheet" href="style.css" />
+    <link href="/main.css" rel="stylesheet" />
+
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">-->
+<!---->
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body style="height: 100vh;">
 
-<header>
-    <div class="admin_center">
-        <label >
-            <h3>Admin Center</h3>
-        </label>
+<header class="p-3 bg-primary text-white">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/admin/admin_home.php" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                Admin Center
+            </a>
+        </div>
     </div>
 </header>
 
-<div class="main-container">
-    <div class="navcontainer">
+<main class="h-100 d-flex flex-nowrap">
+    <div class="h-100 d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <img width="20px" src="/media/logo.png" alt="logo" />
+            <span class="fs-4">Admin Center</span>
+        </a>
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+                <a href="/admin/admin_home.php" class="nav-link active" aria-current="page">
+                    <img width="20px" src="/media/home.png" class="report-img" alt="home"/>
+                    Home
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/admin/admin_reports.php" class="nav-link active" aria-current="page">
+                    <img width="20px" src="/media/reports.png" class="report-img" alt="home"/>
+                    Reports
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/logout/logout.php" class="nav-link active" aria-current="page">
+                    <img width="20px" src="/media/logout.png" class="report-img" alt="home"/>
+                    Logout
+                </a>
+            </li>
 
-        <nav class="navigation_bar">
-            <div class="nav-upper-options">
-
-                <div class="nav-option Home" onclick="location.href='/admin/admin_home.php'">
-                    <img src="/media/home.png" class="report-img" alt="home" />
-                    <h3>Home</h3>
-                </div>
-
-                <div class="nav-option Report" onclick="location.href='/admin/admin_reports.php'">
-                    <img src="/media/reports.png" class="report-img" alt="reports" />
-                    <h3>Reports</h3>
-                </div>
-
-                <div class="nav-option Logout" onclick="location.href='/logout/logout.php'">
-                    <img src="/media/logout.png" class="report-img" alt="logout" />
-                    <h3>Logout</h3>
-                </div>
-
-            </div>
-        </nav>
-
+        </ul>
     </div>
 
-    <div class="main">
-        <div class="box-container">
-            <div class="box Sales">
-                <div class="text">
-                    <h2 class="topic-heading">
+    <div type="body" class="container-fluid">
+        <div class="row align-items-start" style="margin-top: 20px;">
+            <div class="card col text-center text-light bg-secondary shadow-lg" style="width: 18rem;">
+                <div class="card-body">
+                    <p class="topic-heading">
                         <?php
-                            echo $sold_rows['COUNT(product_id)'];
+                        echo $sold_rows['COUNT(product_id)'];
                         ?>
-                    </h2>
-                    <h2 class="topic">Product Sold To Date</h2>
+                    </p>
+                    <p class="topic"># Products Sold</p>
                 </div>
             </div>
 
-            <div class="box Products">
-                <div class="text">
-                    <h2 class="topic-heading">
+            <div class="card col text-center text-light bg-secondary" style="width: 18rem;">
+                <div class="card-body">
+                    <p class="topic-heading">
                         <?php
-                            echo $product_rows['COUNT(product_id)'];
+                        echo $product_rows['COUNT(product_id)'];
                         ?>
-                    </h2>
-                    <h2 class="topic">Products in Database</h2>
+                    </p>
+                    <p class="topic"># Products</p>
                 </div>
             </div>
 
-            <div class="box Users">
-                <div class="text">
-                    <h2 class="topic-heading">
+            <div class="card col text-center text-light bg-secondary" style="width: 18rem;">
+                <div class="card-body">
+                    <p class="topic-heading">
                         <?php
-                            echo $user_rows['COUNT(user_id)'];
+                        echo $user_rows['COUNT(user_id)'];
                         ?>
-                    </h2>
-                    <h2 class="topic">Number of Users</h2>
+                    </p>
+                    <p class="topic"># Users</p>
                 </div>
             </div>
+
+            <div class="card col text-center text-light bg-secondary" style="width: 18rem;">
+                <div class="card-body">
+                    <p class="topic-heading">
+                        <?php
+                        echo $report_rows['COUNT(report_id)'];
+                        ?>
+                    </p>
+                    <p class="topic"># Reports</p>
+                </div>
+            </div>
+
+        <div class="box Reports">
+            <div class="text">
+                <p class="topic-heading">
+                    <?php
+                    echo $report_rows['COUNT(report_id)'];
+                    ?>
+                </p>
+                <p class="topic">Number of Reports</p>
+            </div>
+        </div>
+    </div>
+
+    </div>
+</main>
+
+
+
 
             <div class="box Reports">
                 <div class="text">
@@ -158,6 +196,6 @@ $report_rows = $stmt->fetch();
             </div>
         </div>
     </div>
-</body>
+    </body>
 
 </html>
