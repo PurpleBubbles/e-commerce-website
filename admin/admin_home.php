@@ -39,7 +39,7 @@ $report_rows = $stmt->fetch();
 ?>
 
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8" />
@@ -55,7 +55,7 @@ $report_rows = $stmt->fetch();
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <a href="/admin/admin_home.php" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                Admin Center
+                Admin Home
             </a>
         </div>
     </div>
@@ -159,13 +159,6 @@ $report_rows = $stmt->fetch();
 
                 </thead>
             </table>
-
-            <div class="reports">
-
-
-
-            </div>
-            </div>
         </div>
     </div>
 </main>
