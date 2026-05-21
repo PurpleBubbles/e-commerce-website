@@ -3,16 +3,23 @@
 //include db connection file
 include 'database/db_connection.php';
 
-$product_id = 20;
+$image_id = $_GET['image_id'];
 
-$sql = "SELECT image_id FROM PRODUCT_IMAGES WHERE product_id = ?";
+$sql = "SELECT image_data, image_type FROM PRODUCT_IMAGES WHERE image_id = ?";
 $stmt = $conn->prepare($sql);
-$stmt->execute([$product_id]);
+$stmt->execute([$image_id]);
 $rows = $stmt-> fetchAll();
+$image = $rows[0];
 
-header("Content-Type: " . $file['mime_type']); // e.g., image/jpeg or application/pdf
-header("Content-Disposition: attachment; filename=\"" . $file['file_name'] . "\"");
-header("Content-Length: " . strlen($file['file_data']));
+if ($image['image_type'] == 'jpg' || $image['image_type'] == 'jpeg') {
+    $content_type = 'image/jpeg';
+} else {
+    $content_type = 'image/png';
+}
 
-echo $file['file_data'];
-exit;
+
+header("Content-Type: " . $content_type); // e.g., image/jpeg or image/png
+// header("Content-Disposition: attachment; filename=\"" . $image['product_id'] . "." . $image['image_type'] . "\"");
+header("Content-Length: " . strlen($image['image_data']));
+
+echo $image['image_data'];
