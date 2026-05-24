@@ -44,7 +44,7 @@ session_destroy();
                             <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
                                 <img src="/media/logout_illustration.png"
-                                     class="img-fluid" alt="Sample image">
+                                     class="img-fluid" alt="logout image">
 
                             </div>
                         </div>

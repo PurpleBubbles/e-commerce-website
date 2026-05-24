@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                         <div>
-                                            <input type="email" id="email" name="email" required value="<?php echo $email;?>">
+                                            <input type="email" class="form-control" id="email" name="email" required value="<?php echo $email;?>">
                                             <label for="email">Email</label>
                                         </div>
                                     </div>
@@ -100,13 +100,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                         <div>
-                                            <input type="password" id="password" name="password" required >
+                                            <input type="password" class="form-control" id="password" name="password" required >
                                             <label for="password">Password</label>
                                         </div>
                                     </div>
 
                                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                        <button type="button" class="btn btn-primary btn-lg">Login</button>
+                                        <button type="submit" class="btn btn-primary btn-lg">Login</button>
                                     </div>
 
                                 </form>
@@ -124,6 +124,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </div>
 
                             </div>
+
+                            <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                                <img src="/media/login_illustration.png"
+                                     class="img-fluid" alt="login image">
+
+                            </div>
+
                         </div>
                     </div>
                 </div>
