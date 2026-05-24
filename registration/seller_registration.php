@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['user_id'] = $row['user_id'];
 
             // Redirect to buyer page
-            header('Location: /buyer/buyer.php');
+            header('Location: /seller/home.php');
             exit; // Ensure code stops executing after redirect
             header("Location: target-file.php");
             exit;
@@ -85,124 +85,122 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/main.css" rel="stylesheet" />
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
-    <style>
-    /* General page styling */
-    body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f2f5;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 10px;
-    }
 
-    h1 {
-    font-size: 3rem;
-    text-align: center;
-    margin-bottom: 10px;
-    }
-
-    h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 24px;
-    }
-
-    /* Button styling with hover effect */
-    btn {
-    width: 100%;
-    padding: 12px;
-    background-color: #04AA6D;
-    text-align: center;
-    justify-content: center;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    }
-
-    btn:hover {
-    background-color: #038d5a;
-    }
-
-    label {
-    display: block;
-    width: 100%;
-    text-align: left;
-    }
-    input, select {
-    width: 100%;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    background-color: orange;
-    text-align: center;
-    justify-content: center;
-    color: white;
-    }
-
-    /* Footer links */
-    .footer-links {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 14px;
-    }
-
-    .footer-links a {
-    color: #007bff;
-    text-decoration: none;
-    }
-    </style>
-
-	<title>Seller Registration</title>
+    <title>Seller Registration</title>
 </head>
 <body>
-	<h1>Seller Registration</h1>
+    <section class="vh-100" style="background-color: #253952;">
+        <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-lg-12 col-xl-11">
+                    <div class="card text-black" style="border-radius: 25px;">
+                        <div class="card-body p-md-5">
+                            <div class="row justify-content-center">
+                                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-    <h2>Create an Account</h2>
+                                    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Seller Account Creation</p>
 
-    <form id="seller_registration" action="seller_registration.php" method="POST">
-        <div>
+                                    <form id="seller_registration" action="seller_registration.php" method="POST" class="mx-1 mx-md-4">
 
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input type="text" id="userName"  name="userName" class="form-control" required value="<?php echo $username;?>"/>
+                                                <label class="form-label" for="userName">Your Name</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input type="email" id="email" name="email" class="form-control" required value="<?php echo $email;?>"/>
+                                                <label class="form-label" for="email">Your Email</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" required value="<?php echo $phone;?>"/>
+                                                <label class="form-label" for="phoneNumber">Phone Number</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input type="text" id="ID" name="ID" class="form-control" required value="<?php echo $id_number;?>"/>
+                                                <label class="form-label" for="ID">ID Number</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input type="password" id="password" name="password" class="form-control" required/>
+                                                <label class="form-label" for="password">Password</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required />
+                                                <label class="form-label" for="confirmPassword">Repeat your password</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input type="text" id="address" name="address" class="form-control" required value="<?php echo $address;?>"/>
+                                                <label class="form-label" for="address">House Address</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input type="text" id="bank_name" name="bank_name" class="form-control" required value="<?php echo $bank_name;?>"/>
+                                                <label class="form-label" for="bank_name">Bank Name</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input type="text" id="bank_account" name="bank_account" class="form-control" required value="<?php echo $bank_account;?>"/>
+                                                <label class="form-label" for="bank_account">Bank Account</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                            <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                                        </div>
+
+                                    </form>
+
+                                    <div class="d-flex justify-content-center text-center mt-4">
+                                        <a href="/login/login.php" class="footer-links">Login Page</a>
+                                    </div>
+
+                                    <div class="d-flex justify-content-center text-center mt-4">
+                                        <a href="/registration/buyer_registration.php" class="footer-links">Buyer Registration</a>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                                    <img src="/media/registration_illustration.png"
+                                         class="img-fluid" alt="registration image">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="registration-form">
-            <label>Username: </label>
-            <input type="text" id="userName" name="userName" required value="<?php echo $username;?>">
 
-            <label>Email: </label>
-            <input type="email" id="email" name="email" required value="<?php echo $email;?>">
 
-            <label>Phone Number: </label>
-            <input type="tel" id="phoneNumber" name="phoneNumber" required value="<?php echo $phone;?>">
 
-            <label>Password: </label>
-            <input type="password" id="password" name="password" required>
-
-            <label>Confirm Password: </label>
-            <input type="password" id="confirmPassword" name="confirmPassword" required>
-
-            <label>ID Number: </label>
-            <input type="text" id="ID" name="ID" required value="<?php echo $id_number;?>">
-
-            <label>House Address: </label>
-            <input type="text" id="address" name="address" required value="<?php echo $address;?>">
-
-            <label>Bank Name: </label>
-            <input type="text" id="bank_name" name="bank_name" required value="<?php echo $bank_name;?>">
-
-            <label>Bank Account: </label>
-            <input type="text" id="bank_account" name="bank_account" required value="<?php echo $bank_account;?>">
-
-            <button type="submit">Register</button>
-        </div>
-    </form>
-    <a href="/login/login.php" class="footer-links">Login Page</a>
-    <a href="/registration/buyer_registration.php" class="footer-links">Buyer Registration</a>
 
     <?php
     if ($error_message_popup != ""){
