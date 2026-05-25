@@ -100,6 +100,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     </a>
                 </li>
                 <li class="nav-item my-2">
+                    <a href="/seller/user_listings.php" class="nav-link active" aria-current="page">
+                        <img width="20px" src="/media/collection.png" class="report-img" alt="My Listings"/>
+                        My Listings
+                    </a>
+                </li>
+                <li class="nav-item my-2">
                     <a href="/seller/listing.php" class="nav-link active" aria-current="page">
                         <img width="20px" src="/media/list.png" class="report-img" alt="List Product"/>
                         List
