@@ -16,7 +16,6 @@ class ProductReportCtrl {
             </div>
             
         </div>
-        
         HTML;
     }
 }
