@@ -94,7 +94,6 @@ CREATE TABLE SAVES (
     FOREIGN KEY (product_id) REFERENCES  PRODUCTS(product_id)
 );
 
-
 CREATE TABLE REFUNDS (
     refund_id INT AUTO_INCREMENT PRIMARY KEY,
     refund_reason VARCHAR(200) NOT NULL,
@@ -106,15 +105,6 @@ CREATE TABLE REFUNDS (
     FOREIGN KEY (admin_user_id) REFERENCES USERS(user_id)
 );
 
-CREATE TABLE TRANSACTIONS (
-    transaction_id INT AUTO_INCREMENT PRIMARY KEY,
-    created_at DATE NOT NULL,
-    completed_at DATE,
-    refund_id INT,
-    FOREIGN KEY (refund_id) REFERENCES REFUNDS(refund_id),
-    offer_id INT,
-    FOREIGN KEY (offer_id) REFERENCES OFFERS(offer_id)
-);
 
 CREATE TABLE REVIEWS (
     review_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -138,24 +128,6 @@ CREATE TABLE REPORTS (
     FOREIGN KEY (admin_user_id) REFERENCES USERS(user_id)
 );
 
-CREATE TABLE CONVERSATIONS (
-  conversation_id INT AUTO_INCREMENT PRIMARY KEY,
-  started_at DATE NOT NULL,
-  buyer_user_id INT,
-  FOREIGN KEY (buyer_user_id) REFERENCES USERS(user_id),
-  seller_user_id INT,
-  FOREIGN KEY (seller_user_id) REFERENCES  USERS(user_id)
-);
-
-CREATE TABLE MESSAGES(
-    message_id INT AUTO_INCREMENT PRIMARY KEY,
-    message_content VARCHAR(200) NOT NULL,
-    sent_by INT NOT NULL,
-    sent_at DATE NOT NULL,
-    is_read BOOLEAN DEFAULT FALSE,
-    conversation_id INT,
-    FOREIGN KEY (conversation_id) REFERENCES CONVERSATIONS(conversation_id)
-);
 
 CREATE TABLE SELLER_INFO(
     seller_id VARCHAR(10) PRIMARY KEY,

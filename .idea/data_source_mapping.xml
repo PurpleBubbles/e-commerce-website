@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourcePerFileMappings">
+    <file url="file://$PROJECT_DIR$/admin/admin_home.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
+    <file url="file://$PROJECT_DIR$/admin/admin_reports.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
+    <file url="file://$PROJECT_DIR$/buyer/bought.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
+    <file url="file://$PROJECT_DIR$/buyer/home.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
+    <file url="file://$PROJECT_DIR$/buyer/payment.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
+    <file url="file://$PROJECT_DIR$/buyer/product.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
+    <file url="file://$PROJECT_DIR$/buyer/report.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
+    <file url="file://$PROJECT_DIR$/controllers/buyer_controllers/bought_ctrl.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
+    <file url="file://$PROJECT_DIR$/controllers/buyer_controllers/bought_productview_ctrl.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
+    <file url="file://$PROJECT_DIR$/controllers/buyer_controllers/product_ctrl.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
+    <file url="file://$PROJECT_DIR$/controllers/buyer_controllers/productreport_ctrl.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
+    <file url="file://$PROJECT_DIR$/controllers/buyer_controllers/productview_ctrl.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
+    <file url="file://$PROJECT_DIR$/controllers/seller_controllers/bought_ctrl.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
+    <file url="file://$PROJECT_DIR$/controllers/seller_controllers/product_ctrl.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
+    <file url="file://$PROJECT_DIR$/controllers/seller_controllers/productview_ctrl.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
+    <file url="file://$PROJECT_DIR$/controllers/seller_controllers/sold_ctrl.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
+    <file url="file://$PROJECT_DIR$/database/db_innit.sql" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
+    <file url="file://$PROJECT_DIR$/image.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
+    <file url="file://$PROJECT_DIR$/login/login.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
+    <file url="file://$PROJECT_DIR$/registration/buyer_registration.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
+    <file url="file://$PROJECT_DIR$/registration/seller_registration.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
+    <file url="file://$PROJECT_DIR$/seller/bought.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
+    <file url="file://$PROJECT_DIR$/seller/home.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
+    <file url="file://$PROJECT_DIR$/seller/listing.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
+    <file url="file://$PROJECT_DIR$/seller/payment.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
+    <file url="file://$PROJECT_DIR$/seller/product.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
+    <file url="file://$PROJECT_DIR$/seller/report.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
+    <file url="file://$PROJECT_DIR$/seller/sold.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
+  </component>
+</project>
