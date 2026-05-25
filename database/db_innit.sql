@@ -77,9 +77,12 @@ CREATE TABLE PRODUCT_IMAGES(
 CREATE TABLE PAYMENTS (
     payment_id INT AUTO_INCREMENT PRIMARY KEY,
     amount DECIMAL(10,2) NOT NULL ,
-    method VARCHAR(50),
-    status INT,
-    paid_at DATE
+    method VARCHAR(50) NOT NULL,
+    payment_date DATE NOT NULL default (NOW()),
+    buyer_user_id INT,
+    product_id INT,
+    FOREIGN KEY (product_id) REFERENCES PRODUCTS(product_id),
+    FOREIGN KEY (buyer_user_id) REFERENCES USERS(user_id)
 );
 
 CREATE TABLE SAVES (
@@ -91,19 +94,6 @@ CREATE TABLE SAVES (
     FOREIGN KEY (product_id) REFERENCES  PRODUCTS(product_id)
 );
 
-CREATE TABLE OFFERS (
-    offer_id INT AUTO_INCREMENT PRIMARY KEY,
-    offer_amount DECIMAL(10,2) NOT NULL,
-    offer_status INT NOT NULL,
-    created_at DATE NOT NULL,
-    responded_at DATE,
-    product_id INT,
-    FOREIGN KEY (product_id) REFERENCES PRODUCTS(product_id),
-    buyer_user_id INT,
-    FOREIGN KEY (buyer_user_id) REFERENCES USERS(user_id),
-    seller_user_id INT,
-    FOREIGN KEY (seller_user_id) REFERENCES USERS(user_id)
-);
 
 CREATE TABLE REFUNDS (
     refund_id INT AUTO_INCREMENT PRIMARY KEY,

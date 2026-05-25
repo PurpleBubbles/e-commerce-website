@@ -6,44 +6,27 @@ class PaymentCtrl {
         $total = $row['price'] + $shipping;
 
         return <<<HTML
-        <div class="cic-image-wrapper">
-            <img src="https://placehold.co/224x224/8b5cf6/ffffff/png?text=Blanket" alt="A soft, woven linen throw blanket." class="cic-image">
-        </div>
-        <div class="cic-details">
-            <h3 class="cic-title">{$row['product_name']}</h3>
-            <p class="cic-attributes">{$row['description']}</p>
-        </div>
-        <div class="cic-actions">
-            <p class="cic-price">Price: R{$row['price']}</p>
-        </div>
+        <div class="col col-sm-4 col-lg-4 my-3">
+                <div class="h-100 card text-black " style="border-radius: 10px">
+                    <img style="max-height: 300px;" src="/media/image-break.png" class="card-img-top object-fit-cover p-1" alt="broken" />
+                    <div  class="card-body p-md-3">
+                        <div class=justify-content-center">
+                            
+                            <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">{$row['product_name']}</p>
+                            <p class="text-center">{$row['description']}</p>
+                            <p class="text-start h2 bold">R{$row['price']}</p>
+                            
+                        </div>
+                    </div>
+                </div>
+        </div>    
+        <div class="col col-sm-4 col-lg-4 my-3">
         
-        <label for="shipping">Shipping = R100 </label>
-            <div class="payment_total">
-                <p>Total: R{$total}</p>
-            </div>
+            <p class="text-start h2 bold">Price: R{$row['price']}</p>
+            <p class="text-start h2 bold">Shipping = R100 </p>
+            <p class=" h1 fw-bold ">Total: R{$total}</p>
             
-        <div class="payment_info">Bank Payment Information</div>
-            <div class="payment_info">
-                <p>Bank Name: </p>
-                <label for="options">Bank:</label>
-                <select id="options" name="options" required>
-                    <option value="ABSA">ABSA</option>
-                    <option value="Capitec">Capitec</option>
-                    <option value="Netbank">Netbank</option>
-                    <option value="FNB">FNB</option>
-                </select>
-                <p>Card Number: </p>
-                <input type="text" placeholder="Example: 4242 4242 4242 4242" required>
-                <p>Expiry Date: </p>
-                <input type="date" placeholder="MM/YY" required>
-                <p>CVV: </p>
-                <input type="text" placeholder="Example: 123" required>
-            </div>
-        
-            <div class="payment_button">
-                <button class="view" onclick="location.href='/buyer/buyer.php'">Pay</button>
-            </div>
-            <button class="view" onclick="location.href='../../buyer/home.php'">Cancel</button>
+        </div> 
         HTML;
     }
 }
