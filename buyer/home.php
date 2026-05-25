@@ -39,7 +39,7 @@ $rows = $stmt->fetchAll();
 
     </header>
 
-    <main class="h-100 d-flex flex-nowrap">
+    <main class="h-100 d-flex flex-nowrap flex-fill">
         <div class="h-100 d-flex flex-column flex-shrink-0 p-3 text-bg-secondary" style="width: auto;">
             <a href="/buyer/home.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                 <img width="40px" src="/media/logo.png" alt="logo" />
@@ -71,20 +71,28 @@ $rows = $stmt->fetchAll();
 
         <div class="container-lg my-1">
             <div class="row">
-                <div style="width: auto" class="col-sm-3 col-lg-6 my-3" >
 
-                    <div class="p-5 bg-light text-light">
                         <?php
+                        echo '<div>';
+
+                        $count = 0;
                         foreach($rows as $row){
+
                             //check if product has been sold prior to displaying
                             if($row['status'] !== 0){
+
+                                if ($count % 3 == 0) {
+                                    echo '</div><div class="row">';
+                                }
+                                $count++;
+
                                 echo ProductCtrl::displayProduct($conn, $row);
                             }
-                        }
-                        ?>
-                    </div>
 
-                </div>
+                        }
+                        echo '</div>';
+
+                        ?>
             </div>
         </div>
 
