@@ -19,65 +19,77 @@ $rows = $stmt->fetchAll();
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/style.css">
+        <link href="/main.css" rel="stylesheet" />
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
         <title>Home</title>
 
     </head>
-    <body>
+    <body style="height: 100vh;">
 
-    <header>
-        <div class="listing_page">
-            <label >
-                <h3>Home</h3>
-            </label>
-        </div>
+    <header class="p-3 bg-primary text-white">
 
-        <div class="notifications">
-            <div class="circle"></div>
-            <img src="/media/notification.png" class="icn" alt="notification alert" />
-            <div class="dp">
-                <img src="/media/profile.png" class="dpicn" alt="profile emoticon" />
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/buyer/home.php" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    Home
+                </a>
+
             </div>
         </div>
+
     </header>
 
-    <div class="main-container">
-        <div class="navcontainer">
+    <main class="h-100 d-flex flex-nowrap">
+        <div class="h-100 d-flex flex-column flex-shrink-0 p-3 text-bg-secondary" style="width: auto;">
+            <a href="/buyer/home.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <img width="40px" src="/media/logo.png" alt="logo" />
+                <span class="fs-4 text-black">Product Name</span>
+            </a>
+            <ul class="nav nav-pills flex-column mb-auto">
 
-            <nav class="navigation_bar">
-                <div class="nav-upper-options">
+                <li class="nav-item my-2">
+                    <a href="/buyer/home.php" class="nav-link active" aria-current="page">
+                        <img width="20px" src="/media/home.png" class="report-img text-black" alt="home"/>
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item my-2">
+                    <a href="/buyer/bought.php" class="nav-link active" aria-current="page">
+                        <img width="20px" src="/media/bought.png" class="report-img" alt="Bought items"/>
+                        Bought
+                    </a>
+                </li>
+                <li class="nav-item my-2">
+                    <a href="/logout/logout.php" class="nav-link active" aria-current="page">
+                        <img width="20px" src="/media/logout.png" class="report-img" alt="home"/>
+                        Logout
+                    </a>
+                </li>
 
-                    <div class="nav-option Home" onclick="location.href='/buyer/home.php'">
-                        <img src="/media/home.png" class="report-img" alt="home" />
-                        <h3>Home</h3>
-                    </div>
-                    <div class="nav-option Bought" onclick="location.href='/buyer/bought.php'">
-                        <img src="/media/bought.png" class="report-img" alt="bought" />
-                        <h3>Bought</h3>
-                    </div>
-                    <div class="nav-option Logout" onclick="location.href='/logout/logout.php'">
-                        <img src="/media/logout.png" class="report-img" alt="logout" />
-                        <h3>Logout</h3>
+            </ul>
+        </div>
+
+        <div class="container-lg my-1">
+            <div class="row">
+                <div style="width: auto" class="col-sm-3 col-lg-6 my-3" >
+
+                    <div class="p-5 bg-light text-light">
+                        <?php
+                        foreach($rows as $row){
+                            //check if product has been sold prior to displaying
+                            if($row['status'] !== 0){
+                                echo ProductCtrl::displayProduct($conn, $row);
+                            }
+                        }
+                        ?>
                     </div>
 
                 </div>
-            </nav>
-
+            </div>
         </div>
 
-        <div class="main">
 
-            <?php
-                foreach($rows as $row){
-                    //check if product has been sold prior to displaying
-                    if($row['status'] !== 0){
-                        echo ProductCtrl::displayProduct($conn, $row);
-                    }
-                }
-            ?>
+    </main>
 
-        </div>
-
-    </div>
     </body>
 </html>

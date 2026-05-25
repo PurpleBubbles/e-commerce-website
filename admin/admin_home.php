@@ -65,12 +65,12 @@ $report_rows = $stmt->fetch();
     <div class="h-100 d-flex flex-column flex-shrink-0 p-3 text-bg-secondary" style="width: 280px;">
         <a href="/admin/admin_home.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
             <img width="40px" src="/media/logo.png" alt="logo" />
-            <span class="fs-4">  Admin Center</span>
+            <span class="fs-4 text-black">Admin Center</span>
         </a>
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
                 <a href="/admin/admin_home.php" class="nav-link active" aria-current="page">
-                    <img width="20px" src="/media/home.png" class="report-img" alt="home"/>
+                    <img width="20px" src="/media/home.png" class="report-img text-black" alt="home"/>
                     Home
                 </a>
             </li>
