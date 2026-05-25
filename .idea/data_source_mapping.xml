@@ -14,6 +14,7 @@
     <file url="file://$PROJECT_DIR$/controllers/buyer_controllers/productreport_ctrl.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
     <file url="file://$PROJECT_DIR$/controllers/buyer_controllers/productview_ctrl.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
     <file url="file://$PROJECT_DIR$/controllers/seller_controllers/bought_ctrl.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
+    <file url="file://$PROJECT_DIR$/controllers/seller_controllers/bought_productview_ctrl.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
     <file url="file://$PROJECT_DIR$/controllers/seller_controllers/product_ctrl.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
     <file url="file://$PROJECT_DIR$/controllers/seller_controllers/productview_ctrl.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />
     <file url="file://$PROJECT_DIR$/controllers/seller_controllers/sold_ctrl.php" value="eb047c08-c3fc-45dd-bcc1-18ad6644f0d1" />

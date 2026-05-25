@@ -3,6 +3,7 @@ class BoughtCtrl {
     public static function displayBoughtProducts($conn, $row): string {
 
         $product_id = $row['product_id'];
+
         $sql = "SELECT * FROM PRODUCT_IMAGES WHERE product_id = ? LIMIT 1";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$product_id]);
