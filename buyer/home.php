@@ -72,27 +72,27 @@ $rows = $stmt->fetchAll();
         <div class="container-lg my-1">
             <div class="row">
 
-                        <?php
-                        echo '<div>';
+                <?php
+                echo '<div>';
 
-                        $count = 0;
-                        foreach($rows as $row){
+                $count = 0;
+                foreach($rows as $row){
 
-                            //check if product has been sold prior to displaying
-                            if($row['status'] !== 0){
+                    //check if product has been sold prior to displaying
+                    if($row['status'] !== 0){
 
-                                if ($count % 3 == 0) {
-                                    echo '</div><div class="row">';
-                                }
-                                $count++;
-
-                                echo ProductCtrl::displayProduct($conn, $row);
-                            }
-
+                        if ($count % 3 == 0) {
+                            echo '</div><div class="row">';
                         }
-                        echo '</div>';
+                        $count++;
 
-                        ?>
+                        echo ProductCtrl::displayProduct($conn, $row);
+                    }
+
+                }
+                echo '</div>';
+
+                ?>
             </div>
         </div>
 
