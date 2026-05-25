@@ -12,15 +12,20 @@ class ProductCtrl {
 
         if (empty($rows)) {
             return <<<HTML
-            <div class="box-products">
-                <div class="product">
-                    <img src="/media/image-break.png" class="product-img" alt="coffee" />
-                    <div class="product-text">
-                        <h2 class="topic-heading">{$row['product_name']}</h2>
-                        <h2 class="topic">R{$row['price']}</h2>
-                        <h2 class="topic">{$row['description']}</h2>
-                        <button class="view" onclick="location.href='/seller/product.php?product={$row['product_id']}'">View</button>
-                        <button class="view" onclick="location.href='/seller/payment.php?product={$row['product_id']}'">Buy</button>
+            <div class="col col-sm-4 col-lg-4 my-3">
+                <div class="h-100 card text-black " style="border-radius: 10px">
+                    <img style="max-height: 300px;" src="/media/image-break.png" class="card-img-top object-fit-cover p-1" alt="broken" />
+                    <div class="card-body p-md-3">
+                        <div class=justify-content-center">
+                            
+                            <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">{$row['product_name']}</p>
+                            <p class="text-start h2 bold">R{$row['price']}</p>
+                            <p class="text-center">{$row['description']}</p>                          
+                        </div>
+                    </div>
+                    <div class="card-footer" style="display: flex; justify-content: center;">
+                        <button style="width: auto " type="button" class="btn btn-primary btn-lg m-1"  onclick="location.href='/seller/product.php?product={$row['product_id']}'">View</button>
+                        <button style="width: auto " type="button" class="btn btn-primary btn-lg m-1" onclick="location.href='/seller/payment.php?product={$row['product_id']}'">Buy</button>
                     </div>
                 </div>
             </div>
@@ -28,15 +33,20 @@ class ProductCtrl {
         } else{
             $image_row = $rows;
             return <<<HTML
-            <div class="box-products">
-                <div class="product">
-                    <img src="/image.php?image_id={$image_row['image_id']}" class="product-img" alt="coffee" />
-                    <div class="product-text">
-                        <h2 class="topic-heading">{$row['product_name']}</h2>
-                        <h2 class="topic">R{$row['price']}</h2>
-                        <h2 class="topic">{$row['description']}</h2>
-                        <button class="view" onclick="location.href='/seller/product.php?product={$row['product_id']}'">View</button>
-                        <button class="view" onclick="location.href='/seller/payment.php?product={$row['product_id']}'">Buy</button>
+            <div class="col col-sm-4 col-lg-4 my-3">
+                <div class="h-100 card text-black " style="border-radius: 10px">
+                    <img style="max-height: 300px;" src="/image.php?image_id={$image_row['image_id']}" class="card-img-top object-fit-cover p-1" alt="broken" />
+                    <div class="card-body p-md-3">
+                        <div class=justify-content-center">
+                            
+                            <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">{$row['product_name']}</p>
+                            <p class="text-start h2 bold">R{$row['price']}</p>
+                            <p class="text-center">{$row['description']}</p>                          
+                        </div>
+                    </div>
+                    <div class="card-footer" style="display: flex; justify-content: center;">
+                        <button style="width: auto " type="button" class="btn btn-primary btn-lg m-1"  onclick="location.href='/seller/product.php?product={$row['product_id']}'">View</button>
+                        <button style="width: auto " type="button" class="btn btn-primary btn-lg m-1" onclick="location.href='/seller/payment.php?product={$row['product_id']}'">Buy</button>
                     </div>
                 </div>
             </div>
