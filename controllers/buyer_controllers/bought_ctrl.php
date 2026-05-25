@@ -24,7 +24,7 @@ class BoughtCtrl {
                     </div>
                     <div class="card-footer" style="display: flex; justify-content: center;">
                         <button style="width: auto " type="button" class="btn btn-primary btn-lg m-1"  onclick="location.href='/buyer/product.php?product={$row['product_id']}'">View</button>
-                        <button style="width: auto " type="button" class="btn btn-primary btn-lg m-1" onclick="location.href='/buyer/payment.php?product={$row['product_id']}'">Buy</button>
+                        <button style="width: auto " type="button" class="btn btn-primary btn-lg m-1" onclick="location.href='/buyer/report.php?product={$row['product_id']}'">Report</button>
                     
                     </div>
                 </div>

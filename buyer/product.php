@@ -24,7 +24,7 @@ $row = $stmt->fetch();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
-    <title>Home</title>
+    <title>Product</title>
 
 </head>
 <body>
@@ -32,7 +32,7 @@ $row = $stmt->fetch();
 <header>
     <div class="listing_page">
         <label >
-            <h3>Home</h3>
+            <h3>Product</h3>
         </label>
     </div>
 </header>
