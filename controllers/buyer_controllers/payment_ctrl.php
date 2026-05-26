@@ -1,9 +1,14 @@
 <?php
 class PaymentCtrl {
-    public static function displayPayment($row): string {
+    public static function displayPayment($row, $conn): string {
         $shipping = 100;
-
+        $product_id = $row['product_id'];
         $total = $row['price'] + $shipping;
+
+        $sql = "SELECT * FROM PRODUCT_IMAGES WHERE product_id = ? LIMIT 1";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$product_id]);
+        $rows = $stmt->fetch();
 
         return <<<HTML
         <div class="col col-sm-4 col-lg-4 my-3">
