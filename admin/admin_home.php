@@ -140,7 +140,7 @@ $report_rows = $stmt->fetch();
 
             <div class="report-header">
                 <h1 class="Recent-Reports">Recent Reports</h1>
-                <button type="button" class="bg-primary btn-lg rounded-pill text-light" onclick="location.href='/admin/admin_reports.php'">View All</button>
+                <button type="button" class="btn bg-primary btn-lg rounded-pill text-light" onclick="location.href='/admin/admin_reports.php'">View All</button>
             </div>
 
             <table class="table" title="Recent Reports" style="margin-top: 20px;">
