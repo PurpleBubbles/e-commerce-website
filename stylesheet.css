@@ -1,3 +1,73 @@
+:root {
+    --bg-background: #e8e3ef;
+    --bg-card-amethyst: #2C1E38;
+    --purple-velvet: #5D3B75;
+    --purple-orchid: #9D4EDD;
+    --text-frosted: #E0DBEC;
+    --accent-gold: #E2C799;
+}
+
+/* Header Styling */
+.header {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--bg-card-amethyst) 0%, var(--purple-velvet) 100%);
+    color: #222222;
+    padding-left: 15px;
+    position: relative;
+}
+
+
+/* Main Content Wrapper to stop overlap with sidebar*/
+.main-content {
+    margin-left: 200px;
+    padding: 40px;
+}
+
+.sidebar {
+    height: 100vh;
+    width: 240px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--bg-card-amethyst);
+    border-right: 1px solid var(--purple-velvet);
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.05);
+}
+
+/*nav item styling*/
+.nav-item {
+    color: #b3b3b3;
+    text-decoration: none;
+    padding: 14px 20px;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 12px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 25%;
+    height: 50%;
+    width: 4px;
+    background: linear-gradient(135deg, #7928CA 0%, #B800FF 100%);
+    border-radius: 0 4px 4px 0;
+    transform: scaleY(0);
+    transition: transform 0.2s ease;
+    box-shadow: 0 0 10px rgba(184, 0, 255, 0.8);
+}
+
+.nav-item:hover::before,
+.nav-item.active::before {
+    transform: scaleY(1);
+}
+
 /*btn styling*/
  .btn {
      display: inline-block;
@@ -10,9 +80,9 @@
      color: #ffffff;
      border: none;
      border-radius: 50px;
-     background: linear-gradient(135deg, #7928CA 0%, #B800FF 100%);
+     background: linear-gradient(135deg, var(--purple-velvet) 0%, var(--purple-orchid) 100%);
      cursor: pointer;
-     box-shadow: 0 4px 15px rgba(121, 40, 202, 0.4);
+     box-shadow: 0 4px 15px rgba(157, 78, 221, 0.2);
      transition: all 0.3s ease;
  }
 
@@ -29,7 +99,7 @@
 
  /*footer links styling*/
  .footer-links{
-     color: #7928CA;
+     color: var(--purple-velvet);
      text-decoration: none;
      font-weight: 600;
      position: relative;
@@ -52,15 +122,3 @@
 .footer-links:hover {
     color: #3f0097;
 }
-
-.header {
-    font-family: 'Poppins', sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, #7928CA 0%, #B800FF 100%);
-    color: #222222;
-    margin-bottom: 20px;
-    padding-left: 15px;
-    position: relative;
-}
-
