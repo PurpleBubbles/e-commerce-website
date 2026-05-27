@@ -1,5 +1,7 @@
 <?php
 
+
+
 class ProductCtrl {
     public static function displayProduct($conn, $row): string {
 

@@ -79,6 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/main.css" rel="stylesheet" />
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link href="/stylesheet.css" rel="stylesheet" />
     <title>Create Listing</title>
 
 </head>
@@ -160,8 +161,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <input type="text" name="price" id="price" required placeholder="Enter product price" value="<?php echo $listing_price;?>"/>
                         </div>
 
-
-
                         <!--
                         Vehicles =1
                         Property =2
@@ -239,7 +238,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 name="image[]"
                                 id="image"
                                 accept=".png, .jpeg, .jpg"
-                                required multiple
+                                multiple
+                                required
                         >
                         <button style="width: auto " type="submit" class="btn btn-primary btn-lg m-1">List Product</button>
 

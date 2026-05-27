@@ -1,0 +1,32 @@
+
+ .btn {
+     display: inline-block;
+     padding: 14px 28px;
+     font-family: 'Poppins', sans-serif; /* A clean, modern font */
+     font-size: 16px;
+     font-weight: 600;
+     text-align: center;
+     text-decoration: none;
+     color: #ffffff;
+
+     /* Shaping & Background Gradient */
+     border: none;
+     border-radius: 50px; /* Fully rounded "pill" shape */
+     background: linear-gradient(135deg, #7928CA 0%, #B800FF 100%);
+     cursor: pointer;
+
+     /* Depth Shadow & Smooth Transitions */
+     box-shadow: 0 4px 15px rgba(121, 40, 202, 0.4);
+     transition: all 0.3s ease;
+ }
+
+.btn:hover {
+     transform: translateY(-2px); /* Subtle lift */
+     box-shadow: 0 6px 20px rgba(184, 0, 255, 0.6); /* Expanded glow */
+     background: linear-gradient(135deg, #8A35E5 0%, #C41CFF 100%); /* Slightly brighter gradient */
+ }
+
+ .btn:active {
+     transform: translateY(1px);
+     box-shadow: 0 3px 10px rgba(121, 40, 202, 0.4);
+ }
