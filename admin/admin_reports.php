@@ -35,8 +35,8 @@ $rows = $stmt->fetchAll();
         </div>
     </header>
 
-    <main class="h-100 d-flex flex-nowrap">
-        <div class="h-100 d-flex flex-column flex-shrink-0 p-3 text-bg-secondary" style="width: 280px;">
+    <main class="h-100 d-flex flex">
+        <div class="h-100 d-flex flex-column flex-shrink-0 p-3 text-bg-secondary" style="width:fit-content;">
             <a href="/admin/admin_home.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                 <img width="40px" src="/media/logo.png" alt="logo" />
                 <span class="fs-4">  Admin Center</span>

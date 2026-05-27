@@ -53,7 +53,6 @@ CREATE TABLE PRODUCTS (
     0= means product is not available
     */
     status INT NOT NULL default 1,
-    category_id INT,
     FOREIGN KEY (category_id) REFERENCES CATEGORIES(category_id),
     posted_at DATE NOT NULL DEFAULT (NOW()) ,
     updated_at DATE NOT NULL DEFAULT (NOW()),
@@ -123,6 +122,8 @@ CREATE TABLE REPORTS (
     completed_at DATE,
     resolution VARCHAR(200),
     product_id INT,
+    reporter_user_id INT,
+    FOREIGN KEY (reporter_user_id) REFERENCES USERS(user_id),
     FOREIGN KEY (product_id) REFERENCES PRODUCTS(product_id),
     admin_user_id INT,
     FOREIGN KEY (admin_user_id) REFERENCES USERS(user_id)
@@ -130,7 +131,7 @@ CREATE TABLE REPORTS (
 
 
 CREATE TABLE SELLER_INFO(
-    seller_id VARCHAR(10) PRIMARY KEY,
+    seller_id INT AUTO_INCREMENT PRIMARY KEY,
     house_address VARCHAR(200) NOT NULL,
     bank_name VARCHAR(50) NOT NULL,
     bank_account INT NOT NULL,
