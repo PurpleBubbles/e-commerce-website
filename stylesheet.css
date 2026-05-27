@@ -36,7 +36,7 @@
      transition: color 0.3s ease;
  }
 
-.fancy-purple-link::after {
+.footer-links:after {
     content: '';
     position: absolute;
     width: 100%;
@@ -49,6 +49,18 @@
     transition: transform 0.25s ease-out;
 }
 
-.fancy-purple-link:hover {
+.footer-links:hover {
     color: #3f0097;
 }
+
+.header {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #7928CA 0%, #B800FF 100%);
+    color: #222222;
+    margin-bottom: 20px;
+    padding-left: 15px;
+    position: relative;
+}
+

@@ -29,7 +29,7 @@ $rows = $stmt->fetchAll();
 </head>
 <body style="height: 100vh;">
 
-<header class="p-3 bg-primary text-white">
+<header class="header p-3 bg-primary text-white">
 
     <div class="container">
         <div lass="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
