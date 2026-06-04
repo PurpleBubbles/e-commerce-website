@@ -14,7 +14,6 @@ $user_id="";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //validate and sanitize user input
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-    $hashed_password = password_verify($_POST['password'], PASSWORD_DEFAULT); //always store only hashed passwords!!!
 
     //check if user with that email exists
     $sql = "SELECT COUNT(*) as `counter` FROM USERS WHERE user_email = ?";

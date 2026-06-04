@@ -1,6 +1,7 @@
 <?php
 //start user session
 session_start();
+
 include '../controllers/buyer_controllers/bought_ctrl.php';
 
 //include db connection file
@@ -20,8 +21,6 @@ WHERE buyer_user_id = ?;";
 $stmt = $conn->prepare($sql);
 $stmt->execute([$user_id]);
 $rows = $stmt->fetchAll();
-
-
 
 ?>
 

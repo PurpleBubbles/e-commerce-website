@@ -43,7 +43,7 @@ class BoughtCtrl {
                                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">{$row['product_name']}</p>
                                 <p class="text-start h2 bold">R{$row['price']}</p>
                                 <p class="text-center">{$row['description']}</p>
-                                
+                              
                             </div>
                         </div>
                         <div class="card-footer" style="display: flex; justify-content: center;">
