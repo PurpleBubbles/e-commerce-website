@@ -101,6 +101,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </a>
                 </li>
                 <li class="nav-item my-2">
+                    <a href="/seller/sold.php" class="nav-link active" aria-current="page">
+                        <img width="20px" src="/media/sold.png" class="report-img" alt="Sold items"/>
+                        Sold
+                    </a>
+                </li>
+                <li class="nav-item my-2">
+                    <a href="/seller/user_listings.php" class="nav-link active" aria-current="page">
+                        <img width="20px" src="/media/collection.png" class="report-img" alt="My Listings"/>
+                        My Listings
+                    </a>
+                </li>
+                <li class="nav-item my-2">
+                    <a href="/seller/listing.php" class="nav-link active" aria-current="page">
+                        <img width="20px" src="/media/list.png" class="report-img" alt="List Product"/>
+                        List
+                    </a>
+                </li>
+                <li class="nav-item my-2">
                     <a href="/seller/profile.php" class="nav-link active" aria-current="page">
                         <img width="20px" src="/media/profile.png" class="report-img" alt="edit profile"/>
                         Profile

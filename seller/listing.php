@@ -100,7 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="h-100 d-flex flex-column flex-shrink-0 p-3 text-bg-secondary" style="width: auto;">
             <a href="/seller/home.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                 <img width="40px" src="/media/logo.png" alt="logo" />
-                <span class="fs-4 text-black">Product Name</span>
+                <span class="fs-4 text-black">Bazaar Inc.</span>
             </a>
             <ul class="nav nav-pills flex-column mb-auto">
 
