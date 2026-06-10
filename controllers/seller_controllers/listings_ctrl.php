@@ -22,6 +22,9 @@ class ListingsCtrl {
                             <p class="text-center">{$row['description']}</p>                          
                         </div>
                     </div>
+                    <div class="card-footer" style="display: flex; justify-content: center;">
+                        <button style="width: auto " type="button" class="btn btn-primary btn-lg m-1" onclick="location.href='/seller/update_listing.php?product={$row['product_id']}'">Update Listing</button>
+                    </div>
                 </div>
             </div>
             HTML;
@@ -38,6 +41,9 @@ class ListingsCtrl {
                             <p class="text-start h2 bold">R{$row['price']}</p>
                             <p class="text-center">{$row['description']}</p>                          
                         </div>
+                    </div>
+                    <div class="card-footer" style="display: flex; justify-content: center;">
+                        <button style="width: auto " type="button" class="btn btn-primary btn-lg m-1" onclick="location.href='/seller/update_listing.php?product={$row['product_id']}'">Update Listing</button>
                     </div>
                 </div>
             </div>
