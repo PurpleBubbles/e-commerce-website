@@ -79,6 +79,12 @@ $rows = $stmt->fetchAll();
                 </a>
             </li>
             <li class="nav-item my-2">
+                <a href="/seller/profile.php" class="nav-link active" aria-current="page">
+                    <img width="20px" src="/media/profile.png" class="report-img" alt="edit profile"/>
+                    Profile
+                </a>
+            </li>
+            <li class="nav-item my-2">
                 <a href="/logout/logout.php" class="nav-link active" aria-current="page">
                     <img width="20px" src="/media/logout.png" class="report-img" alt="home"/>
                     Logout
