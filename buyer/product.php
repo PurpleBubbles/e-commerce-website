@@ -46,7 +46,7 @@ $row = $stmt->fetch();
         <div class="h-100 d-flex flex-column flex-shrink-0 p-3 text-bg-secondary" style="width: auto;">
             <a href="/buyer/home.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                 <img width="40px" src="/media/logo.png" alt="logo" />
-                <span class="fs-4 text-black">Product Name</span>
+                <span class="fs-4 text-black">Bazaar Inc.</span>
             </a>
             <ul class="nav nav-pills flex-column mb-auto">
 
@@ -60,6 +60,18 @@ $row = $stmt->fetch();
                     <a href="/buyer/bought.php" class="nav-link active" aria-current="page">
                         <img width="20px" src="/media/bought.png" class="report-img" alt="Bought items"/>
                         Bought
+                    </a>
+                </li>
+                <li class="nav-item my-2">
+                    <a href="/buyer/become_seller.php" class="nav-link active" aria-current="page">
+                        <img width="20px" src="/media/seller.png" class="report-img" alt="become seller"/>
+                        Become Seller
+                    </a>
+                </li>
+                <li class="nav-item my-2">
+                    <a href="/buyer/profile.php" class="nav-link active" aria-current="page">
+                        <img width="20px" src="/media/profile.png" class="report-img" alt="edit profile"/>
+                        Profile
                     </a>
                 </li>
                 <li class="nav-item my-2">

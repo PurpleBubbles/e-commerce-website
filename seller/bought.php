@@ -21,8 +21,6 @@ $stmt = $conn->prepare($sql);
 $stmt->execute([$user_id]);
 $rows = $stmt->fetchAll();
 
-
-
 ?>
 
 <!DOCTYPE html>

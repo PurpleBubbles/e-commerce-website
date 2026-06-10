@@ -56,9 +56,9 @@ CREATE TABLE PRODUCTS (
     FOREIGN KEY (category_id) REFERENCES CATEGORIES(category_id),
     posted_at DATE NOT NULL DEFAULT (NOW()) ,
     updated_at DATE NOT NULL DEFAULT (NOW()),
-    user_id INT,
+    seller_user_id INT,
     category_id INT NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES USERS(user_id),
+    FOREIGN KEY (seller_user_id) REFERENCES USERS(user_id),
     location_id INT,
     FOREIGN KEY (location_id) REFERENCES LOCATIONS(location_id),
     FOREIGN KEY (category_id) REFERENCES CATEGORIES(category_id)
