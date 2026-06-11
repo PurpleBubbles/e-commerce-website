@@ -88,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </head>
 <body>
-<section class="vh-100" style="background-color: #2C1E38FF;">
+<section class="min-vh-100 d-flex flex-column" style="background-color: #2C1E38FF;">
     <header class="header p-3 bg-primary text-white">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -99,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
     </header>
-    <main class="flex-fill d-flex flex-nowrap overflow-auto">
+    <main class="flex-fill d-flex flex-nowrap">
 
         <div class=" d-flex flex-column flex-shrink-0 p-3 text-bg-secondary" style="width: auto;">
             <a href="/buyer/home.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -225,10 +225,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
     </main>
 </section>
-
-
-
-
 
 <?php
 if ($error_message_popup != ""){

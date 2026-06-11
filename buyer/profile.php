@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <li class="nav-item my-2">
                     <a href="/buyer/become_seller.php" class="nav-link active" aria-current="page">
                         <img width="20px" src="/media/seller.png" class="report-img" alt="become seller"/>
-                        Update Profile
+                        Become Seller
                     </a>
                 </li>
                 <li class="nav-item my-2">
