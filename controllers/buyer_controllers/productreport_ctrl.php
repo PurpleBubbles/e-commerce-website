@@ -1,6 +1,11 @@
 <?php
 class ProductReportCtrl {
     public static function displayReportedProduct($row, $row_image): string {
+
+        if (empty($row_image)) {
+            $row_image = ['image_id' => "none"];
+        }
+
         return <<<HTML
         <div class="col col-sm-4 col-lg-4 my-3">
             <div class="h-100 card text-black " style="border-radius: 10px">

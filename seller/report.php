@@ -25,7 +25,7 @@ $stmt = $conn->prepare($sql);
 $stmt->execute([$product_id]);
 $row = $stmt->fetch();
 
-$sql = "SELECT image_id FROM PRODUCT_IMAGES WHERE product_id = ?";
+$sql = "SELECT image_id FROM PRODUCT_IMAGES WHERE product_id = ? LIMIT 1";
 $stmt = $conn->prepare($sql);
 $stmt->execute([$product_id]);
 $row_image = $stmt->fetch();
