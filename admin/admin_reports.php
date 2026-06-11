@@ -5,6 +5,22 @@ session_start();
 include '../controllers/admin_controllers/adminreport_ctrl.php';
 include '../database/db_connection.php';
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $report_id    = (int)($_POST['report_id'] ?? 0);
+    $resolution   = trim($_POST['resolution'] ?? '') ?: NULL;
+    $completed_at = $resolution !== NULL ? date('Y-m-d') : NULL;
+
+    if ($report_id > 0) {
+        $stmt = $conn->prepare("UPDATE REPORTS SET resolution = ?, completed_at = ? WHERE report_id = ?");
+        $stmt->bindValue(1, $resolution, $resolution === NULL ? PDO::PARAM_NULL : PDO::PARAM_STR);
+        $stmt->bindValue(2, $completed_at, $completed_at === NULL ? PDO::PARAM_NULL : PDO::PARAM_STR);
+        $stmt->bindValue(3, $report_id, PDO::PARAM_INT);
+        $stmt->execute();
+    }
+    header('Location: /admin/admin_reports.php');
+    exit;
+}
+
 $sql = "SELECT * FROM REPORTS";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
@@ -85,12 +101,12 @@ $rows = $stmt->fetchAll();
                         <th scope="col">Resolution</th>
                         <th scope="col">Status</th>
                     </tr>
-                        <?php
-                        foreach($rows as $row){
-                            echo ReportCtrl::displayReport($row);
-                        }
-                        ?>
                     </thead>
+                    <tbody>
+                        <?php foreach ($rows as $row): ?>
+                            <?= ReportCtrl::displayReport($row) ?>
+                        <?php endforeach; ?>
+                    </tbody>
                 </table>
             </div>
         </div>
