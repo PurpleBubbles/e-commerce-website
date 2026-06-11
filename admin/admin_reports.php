@@ -6,10 +6,14 @@ include '../controllers/admin_controllers/adminreport_ctrl.php';
 include '../database/db_connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    //get report id from form sommer ensure it is an integer as well
     $report_id    = (int)($_POST['report_id'] ?? 0);
+    //if resolution is empty set it to null else set it to the entered text
     $resolution   = trim($_POST['resolution'] ?? '') ?: NULL;
+    //if resolution is not empty set completed_at to current date for reports table
     $completed_at = $resolution !== NULL ? date('Y-m-d') : NULL;
 
+    //only do if we have valid report id
     if ($report_id > 0) {
         $stmt = $conn->prepare("UPDATE REPORTS SET resolution = ?, completed_at = ? WHERE report_id = ?");
         $stmt->bindValue(1, $resolution, $resolution === NULL ? PDO::PARAM_NULL : PDO::PARAM_STR);
@@ -17,10 +21,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bindValue(3, $report_id, PDO::PARAM_INT);
         $stmt->execute();
     }
+    //redirect to reports page after save updat
     header('Location: /admin/admin_reports.php');
     exit;
 }
-
+//get all reports
 $sql = "SELECT * FROM REPORTS";
 $stmt = $conn->prepare($sql);
 $stmt->execute();

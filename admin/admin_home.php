@@ -6,11 +6,11 @@ include '../controllers/admin_controllers/adminreport_ctrl.php';
 //include db connection file
 include '../database/db_connection.php';
 
-//get all reports
-$sql = "SELECT * FROM REPORTS";
+//get only the top 5 unresolved reports
+$sql = "SELECT * FROM REPORTS WHERE completed_at IS NULL ORDER BY reported_at DESC LIMIT 5";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
-$rows = $stmt->fetchAll();
+$unresolved_rows = $stmt->fetchAll();
 
 //get number of sold products
 $sql = "SELECT COUNT(product_id) FROM PRODUCTS WHERE status = 0";
@@ -97,49 +97,34 @@ $report_rows = $stmt->fetch();
         </ul>
     </div>
 
-    <div type="body" class="container-fluid">
-        <div class="row align-items-start" style="margin-top: 20px;">
-            <div class="card col-md-auto text-center text-light bg-secondary shadow-lg" style="width: 18rem;">
-                <div class="card-body">
-                    <p class="topic-heading">
-                        <?php
-                        echo $sold_rows['COUNT(product_id)'];
-                        ?>
-                    </p>
-                    <p class="topic"># Products Sold</p>
+    <div type="body" class="container-fluid p-4">
+        <div class="row g-3" style="margin-top: 4px;">
+
+            <div class="col-sm-6 col-xl-3">
+                <div class="stat-card">
+                    <div class="stat-number"><?= $sold_rows['COUNT(product_id)'] ?></div>
+                    <div class="stat-label">Products Sold</div>
                 </div>
             </div>
 
-            <div class="card col-md-auto text-center text-light bg-secondary" style="width: 18rem;">
-                <div class="card-body">
-                    <p class="topic-heading">
-                        <?php
-                        echo $product_rows['COUNT(product_id)'];
-                        ?>
-                    </p>
-                    <p class="topic"># Products</p>
+            <div class="col-sm-6 col-xl-3">
+                <div class="stat-card">
+                    <div class="stat-number"><?= $product_rows['COUNT(product_id)'] ?></div>
+                    <div class="stat-label">Total Products</div>
                 </div>
             </div>
 
-            <div class="card col-md-auto text-center text-light bg-secondary" style="width: 18rem;">
-                <div class="card-body">
-                    <p class="topic-heading">
-                        <?php
-                        echo $user_rows['COUNT(user_id)'];
-                        ?>
-                    </p>
-                    <p class="topic"># Users</p>
+            <div class="col-sm-6 col-xl-3">
+                <div class="stat-card">
+                    <div class="stat-number"><?= $user_rows['COUNT(user_id)'] ?></div>
+                    <div class="stat-label">Total Users</div>
                 </div>
             </div>
 
-            <div class="card col-md-auto text-center text-light bg-secondary" style="width: 18rem;">
-                <div class="card-body">
-                    <p class="topic-heading">
-                        <?php
-                        echo $report_rows['COUNT(report_id)'];
-                        ?>
-                    </p>
-                    <p class="topic"># Reports</p>
+            <div class="col-sm-6 col-xl-3">
+                <div class="stat-card">
+                    <div class="stat-number"><?= $report_rows['COUNT(report_id)'] ?></div>
+                    <div class="stat-label">Total Reports</div>
                 </div>
             </div>
 
@@ -159,7 +144,7 @@ $report_rows = $stmt->fetch();
                     <th scope="col">Status</th>
                 </tr>
                 <?php
-                foreach($rows as $row){
+                foreach($unresolved_rows as $row){
                     echo ReportCtrl::displayReport($row);
                 }
                 ?>
