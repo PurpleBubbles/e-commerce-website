@@ -29,6 +29,33 @@
     padding: 40px;
 }
 
+/* body styling to make sidebar scrollable*/
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+body > main.h-100,
+body > section > main.h-100 {
+    flex: 1 1 0% !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    overflow: hidden;
+}
+
+body > main > div:first-child,
+body > section > main > div:first-child {
+    overflow-y: auto;
+}
+/* if form too long make it scrollable */
+body > main > div:last-child,
+body > section > main > div:last-child {
+    flex: 1 1 0%;
+    min-height: 0;
+    overflow-y: auto;
+}
+
+
 .sidebar {
     height: 100vh;
     width: 240px;
@@ -146,29 +173,4 @@
     font-size: 0.9rem;
     opacity: 0.85;
     margin-top: 4px;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-}
-
-body > main.h-100,
-body > section > main.h-100 {
-    flex: 1 1 0% !important;
-    height: 0 !important;
-    min-height: 0 !important;
-    overflow: hidden;
-}
-
-body > main > div:first-child,
-body > section > main > div:first-child {
-    overflow-y: auto;
-}
-
-body > main > div:last-child,
-body > section > main > div:last-child {
-    flex: 1 1 0%;
-    min-height: 0;
-    overflow-y: auto;
 }
