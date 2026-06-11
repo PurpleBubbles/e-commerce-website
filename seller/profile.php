@@ -79,9 +79,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
     </header>
-    <main class="h-100 d-flex flex-nowrap flex-fill">
+    <main class="flex-fill d-flex flex-nowrap flex-fill">
 
-        <div class=" h-100 d-flex flex-column flex-shrink-0 p-3 text-bg-secondary" style="width: auto;">
+        <div class=" d-flex flex-column flex-shrink-0 p-3 text-bg-secondary" style="width: auto;">
             <a href="/seller/home.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                 <img width="40px" src="/media/logo.png" alt="logo" />
                 <span class="fs-4 text-black">Bazaar Inc.</span>
@@ -134,8 +134,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </ul>
         </div>
 
-        <div class="container h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="container">
+            <div class="row d-flex justify-content-center align-items-start py-4">
                 <div class="col-lg-12 col-xl-11">
                     <div class="card text-black" style="border-radius: 25px;">
                         <div class="card-body p-md-5">
@@ -187,6 +187,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </div>
         </div>
+    </main>
 </section>
 
 <?php

@@ -16,7 +16,10 @@
     background: linear-gradient(135deg, var(--bg-card-amethyst) 0%, var(--purple-velvet) 100%);
     color: #222222;
     padding-left: 15px;
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+    flex-shrink: 0;
 }
 
 
@@ -143,4 +146,30 @@
     font-size: 0.9rem;
     opacity: 0.85;
     margin-top: 4px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+body > main.h-100,
+body > section > main.h-100 {
+    flex: 1 1 0% !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    overflow: hidden;
+}
+
+body > main > div:first-child,
+body > section > main > div:first-child {
+    overflow-y: auto;
+}
+
+body > main > div:last-child,
+body > section > main > div:last-child {
+    flex: 1 1 0%;
+    min-height: 0;
+    overflow-y: auto;
 }
