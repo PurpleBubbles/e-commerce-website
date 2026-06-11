@@ -45,19 +45,25 @@ $rows = $stmt->fetchAll();
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
                     <a href="/admin/admin_home.php" class="nav-link active" aria-current="page">
-                        <img width="20px" src="/media/home.png" class="report-img" alt="home"/>
+                        <img width="20px" src="/media/home.png" class="report-img text-black" alt="home"/>
                         Home
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="/admin/admin_reports.php" class="nav-link active" aria-current="page">
-                        <img width="20px" src="/media/reports.png" class="report-img" alt="home"/>
+                        <img width="20px" src="/media/reports.png" class="report-img" alt="reports"/>
                         Reports
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="/admin/admin_edit_users.php" class="nav-link active" aria-current="page">
+                        <img width="20px" src="/media/users.png" class="report-img" alt="edit users"/>
+                        Edit Users
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/logout/logout.php" class="nav-link active" aria-current="page">
-                        <img width="20px" src="/media/logout.png" class="report-img" alt="home"/>
+                        <img width="20px" src="/media/logout.png" class="report-img" alt="logout"/>
                         Logout
                     </a>
                 </li>
