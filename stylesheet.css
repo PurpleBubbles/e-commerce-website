@@ -174,3 +174,93 @@ body > section > main > div:last-child {
     opacity: 0.85;
     margin-top: 4px;
 }
+
+/* ── Mobile bottom nav (≤768 px) ───────────────────────────────────────── */
+@media (max-width: 768px) {
+
+    /* Turn the left sidebar into a fixed bottom bar */
+    body > main > div:first-child,
+    body > section > main > div:first-child {
+        position: fixed !important;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100% !important;
+        height: auto !important;
+        min-height: unset !important;
+        flex-direction: row !important;
+        align-items: center;
+        padding: 4px 0 !important;
+        z-index: 1000;
+        border-right: none !important;
+        border-top: 2px solid var(--purple-velvet);
+        box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.25);
+        transition: transform 0.3s ease;
+    }
+
+    /* Slide the bottom bar off-screen when hidden */
+    body > main > div:first-child.bottom-nav-hidden,
+    body > section > main > div:first-child.bottom-nav-hidden {
+        transform: translateY(100%);
+    }
+
+    /* Hide the logo / brand link */
+    body > main > div:first-child > a:first-child,
+    body > section > main > div:first-child > a:first-child {
+        display: none !important;
+    }
+
+    /* Nav list: horizontal, full width */
+    body > main > div:first-child .nav,
+    body > section > main > div:first-child .nav {
+        flex-direction: row !important;
+        width: 100%;
+        justify-content: space-around;
+        margin-bottom: 0 !important;
+    }
+
+    /* Nav items: equal columns */
+    body > main > div:first-child .nav-item,
+    body > section > main > div:first-child .nav-item {
+        flex: 1;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* Nav links: icon above label */
+    body > main > div:first-child .nav-link,
+    body > section > main > div:first-child .nav-link {
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 4px 2px !important;
+        font-size: 10px;
+        gap: 2px;
+        line-height: 1.2;
+    }
+
+    /* Swap the left accent bar to a top highlight bar */
+    body > main > div:first-child .nav-item::before,
+    body > section > main > div:first-child .nav-item::before {
+        top: 0;
+        left: 15%;
+        width: 70%;
+        height: 3px;
+        transform: scaleX(0);
+        border-radius: 0 0 4px 4px;
+        transition: transform 0.2s ease;
+    }
+
+    body > main > div:first-child .nav-item:hover::before,
+    body > section > main > div:first-child .nav-item:hover::before,
+    body > main > div:first-child .nav-item.active::before,
+    body > section > main > div:first-child .nav-item.active::before {
+        transform: scaleX(1);
+    }
+
+    /* Push content up so it isn't hidden under the bottom bar */
+    body > main > div:last-child,
+    body > section > main > div:last-child {
+        padding-bottom: 72px;
+        width: 100% !important;
+    }
+}

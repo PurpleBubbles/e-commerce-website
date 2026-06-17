@@ -114,7 +114,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             ?>
 
-        </div>
+
 
         <hr class="my-4">
 
@@ -169,7 +169,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <button style="width: auto " type="button" class="btn btn-primary btn-lg m-1" onclick="location.href='../../buyer/home.php'">Cancel Payment</button>
             </div>
         </form>
-
+        </div>
     </main>
 
     <?php
