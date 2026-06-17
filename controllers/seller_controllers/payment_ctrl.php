@@ -8,12 +8,12 @@ class PaymentCtrl {
         $sql = "SELECT * FROM PRODUCT_IMAGES WHERE product_id = ? LIMIT 1";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$product_id]);
-        $rows = $stmt->fetch();
+        $image_row = $stmt->fetch();
 
         return <<<HTML
         <div class="col col-sm-4 col-lg-4 my-3">
                 <div class="h-100 card text-black " style="border-radius: 10px">
-                    <img style="max-height: 300px;" src="/media/image-break.png" class="card-img-top object-fit-cover p-1" alt="broken" />
+                    <img style="max-height: 300px;" src="/image.php?image_id={$image_row['image_id']}" class="card-img-top object-fit-cover p-1" alt="broken" />
                     <div  class="card-body p-md-3">
                         <div class=justify-content-center">
                             
